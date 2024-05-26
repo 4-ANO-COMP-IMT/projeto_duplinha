@@ -12,7 +12,10 @@ app.get('/cavalos', (req, res) => {
 
 app.post('/cavalos', (req, res) => {
     const idCavalo = uuidv4()
-    const {texto} = req.body
+    const infos = req.body
+    cavalos[idCavalo] = {
+        idCavalo, infos
+    }
 
     res.status(201).send(cavalos[idCavalo])
 })

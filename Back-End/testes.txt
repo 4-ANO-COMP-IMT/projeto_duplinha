@@ -1,0 +1,41 @@
+JSONs porntos para a realização rápida de testes
+
+----------------------------------------------CAVALOS----------------------------------------------------
+{
+  "nome": "Pingo",
+  "raca": "SRD",
+  "dt_nasc": "12-04-2012",
+  "pelagem": "Pampa de Tordilho",
+  "castrado": "true",
+  "sexo": "M",
+  "num_reg": "",
+  "num_chip": "123-456",
+  "tipo_reg": "",
+  "id_prop": "",
+  "id_vet": "",
+  "baia": "7A",
+  "id_ficha": "",
+  "id_manejo": "",
+  "id_treino": "",
+  "mensalidade": "1950"
+}
+
+{
+  "nome": "Encanto ESR",
+  "raca": "Mangalarga Paulista",
+  "dt_nasc": "08-05-2022",
+  "pelagem": "Alazã Amarilha",
+  "castrado": "false",
+  "sexo": "M",
+  "num_reg": "230290/P",
+  "num_chip": "963003001470607",
+  "tipo_reg": "Provisório",
+  "id_prop": "",
+  "id_vet": "",
+  "baia": "8A",
+  "id_ficha": "",
+  "id_manejo": "",
+  "id_treino": "",
+  "mensalidade": "1100"
+}
+

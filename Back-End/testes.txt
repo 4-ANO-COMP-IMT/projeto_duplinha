@@ -1,4 +1,4 @@
-JSONs porntos para a realização rápida de testes
+JSONs prontos para a realização rápida de testes
 
 ----------------------------------------------CAVALOS----------------------------------------------------
 {

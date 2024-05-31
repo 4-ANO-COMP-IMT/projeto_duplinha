@@ -39,3 +39,41 @@ JSONs porntos para a realização rápida de testes
   "mensalidade": "1100"
 }
 
+----------------------------------------------PROPRIETÁRIOS----------------------------------------------------
+{
+  "nome": "Júlia",
+  "sobrenome": "Galhardi",
+  "cpf": "12345678901",
+  "genero": "Mulher cis",
+  "dt_nasc": "09-08-2001",
+  "telefone": "11912345678",
+  "endereco": {
+    "logradouro": "Rua das Petúnias, 14",
+    "complemento": "Apt 35",
+    "cidade": "São Caetano do Sul",
+    "estado": "SP"
+    },
+  "email": "julia.g@email.com",
+  "nomeContatoEmergencia": "Izabel Goes",
+  "telefoneContatoEmergencia": "11912346789",
+  "id_cavalos": [""]
+}
+
+{
+  "nome": "Izabel",
+  "sobrenome": "Goes",
+  "cpf": "12345678901",
+  "genero": "NB",
+  "dt_nasc": "05-04-2001",
+  "telefone": "11912345678",
+  "endereco": {
+    "logradouro": "Rua das Rosas, 15",
+    "complemento": "Apt 43",
+    "cidade": "São Caetano do Sul",
+    "estado": "SP"
+    },
+  "email": "izabel.g@email.com",
+  "nomeContatoEmergencia": "Júlia Galhardi",
+  "telefoneContatoEmergencia": "11912346789",
+  "id_cavalos": [""]
+}

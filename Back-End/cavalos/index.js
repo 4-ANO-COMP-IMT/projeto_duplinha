@@ -4,16 +4,17 @@ const axios = require('axios')
 const app = express()
 app.use(express.json())
 
-const cavalos = {}
+const cavalos = []
 
 app.get('/cavalos', (req, res) => {
     res.send(cavalos)
 })
 
 app.post('/cavalos', async (req, res) => {
+    let pos = 0
     const idCavalo = uuidv4()
     const infos = req.body
-    cavalos[idCavalo] = {
+    cavalos[pos] = {
         idCavalo, infos
     }
 
@@ -25,7 +26,8 @@ app.post('/cavalos', async (req, res) => {
         }
       })
 
-    res.status(201).send(cavalos[idCavalo])
+    res.status(201).send(cavalos[pos])
+    pos++
 })
 
 app.post('/eventos', (req, res) => {

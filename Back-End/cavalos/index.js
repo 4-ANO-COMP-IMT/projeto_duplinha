@@ -7,13 +7,13 @@ app.use(express.json())
 app.use(cors())
 
 const cavalos = []
+let pos = 0
 
 app.get('/cavalos', (req, res) => {
     res.send(cavalos)
 })
 
 app.post('/cavalos', async (req, res) => {
-    let pos = 0
     const idCavalo = uuidv4()
     const infos = req.body
     cavalos[pos] = {

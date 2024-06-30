@@ -20,6 +20,11 @@ app.post('/proprietarios', (req, res) => {
     res.status(201).send(proprietarios[idProprietario])
 })
 
+app.post('/eventos', (req, res) => {
+    console.log(req.body)
+    res.status(200).send({msg: 'ok'})
+  })
+
 app.listen(5000, () => {
     console.log('Proprietários na porta 5000')
 })

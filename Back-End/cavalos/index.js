@@ -1,10 +1,13 @@
 const express = require('express')
+const cors = require('cors')
 const {v4: uuidv4} = require('uuid')
 const axios = require('axios')
 const app = express()
 app.use(express.json())
+app.use(cors())
 
-const cavalos = {}
+const cavalos = []
+let pos = 0
 
 app.get('/cavalos', (req, res) => {
     res.send(cavalos)
@@ -13,7 +16,7 @@ app.get('/cavalos', (req, res) => {
 app.post('/cavalos', async (req, res) => {
     const idCavalo = uuidv4()
     const infos = req.body
-    cavalos[idCavalo] = {
+    cavalos[pos] = {
         idCavalo, infos
     }
 
@@ -25,7 +28,8 @@ app.post('/cavalos', async (req, res) => {
         }
       })
 
-    res.status(201).send(cavalos[idCavalo])
+    res.status(201).send(cavalos[pos])
+    pos++
 })
 
 app.post('/eventos', (req, res) => {

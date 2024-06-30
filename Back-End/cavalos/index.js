@@ -10,12 +10,20 @@ app.get('/cavalos', (req, res) => {
     res.send(cavalos)
 })
 
-app.post('/cavalos', (req, res) => {
+app.post('/cavalos', async (req, res) => {
     const idCavalo = uuidv4()
     const infos = req.body
     cavalos[idCavalo] = {
         idCavalo, infos
     }
+
+    await axios.post("http://localhost:50000/eventos", {
+        tipo: 'CavaloCriado',
+        dados: {
+            idCavalo, 
+            infos
+        }
+      })
 
     res.status(201).send(cavalos[idCavalo])
 })

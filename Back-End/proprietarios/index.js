@@ -10,12 +10,20 @@ app.get('/proprietarios', (req, res) => {
     res.send(proprietarios)
 })
 
-app.post('/proprietarios', (req, res) => {
+app.post('/proprietarios', async (req, res) => {
     const idProprietario = uuidv4()
     const infos = req.body
     proprietarios[idProprietario] = {
         idProprietario, infos
     }
+
+    await axios.post("http://localhost:50000/eventos", {
+        tipo: 'ProprietarioCriado',
+        dados: {
+            idProprietario, 
+            infos
+        }
+      })
 
     res.status(201).send(proprietarios[idProprietario])
 })

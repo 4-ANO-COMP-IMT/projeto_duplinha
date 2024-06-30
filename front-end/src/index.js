@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import ReactDOM from "react-dom";
+import axios from 'axios'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import Cavalo from "./Cavalo"
@@ -7,7 +8,7 @@ import Cartao from "./Cartao"
 import VerCavalo from "./VerCavalo"
 
 const App = () => {
-  const funcaoVerCavalo = () => alert('[Popup com informações completas do cavalo]')
+  const funcaoVerCavalo = () => alert('[Informações completas do cavalo]')
   const textoBotao = "Ver Cavalo"
   const componenteVerCavalo = <VerCavalo textoBotao={textoBotao} funcaoVerCavalo={funcaoVerCavalo} />
 

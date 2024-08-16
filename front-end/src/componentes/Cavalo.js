@@ -1,22 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import './Cavalo.css';
 
-//Ao invés de props, pode-se colocar um json com os atributos direto: Pedido = ({icone, titulo, descricao}) 
-//e só passar esses parâmetros no corpo da função
 const Cavalo = (props) => {
-    return(
-      <div className="d-flex">
-        <div className="d-flex align-items-center">
-          <i className={props.icone}></i>
-        </div>
-        {/** flex-grow 1: tomar todo o espaço remanescente */}
-        <div className="flex-grow-1 ms-2 border">
-          <h4 className="text-center">{props.nome}</h4>
-          <p className="text-center">Baia: {props.baia}</p>
-          <p className="text-center">Pelagem: {props.pelagem}</p>
-        </div>
+  return (
+    <div className="cavalo">
+      <div className="cavalo-icone">
+        <i className={props.icone}></i>
       </div>
-    )
+      <div className="cavalo-detalhes">
+        <h4 className="cavalo-nome">{props.nome}</h4>
+        <p className="cavalo-info">Baia: {props.baia}</p>
+        <p className="cavalo-info">Pelagem: {props.pelagem}</p>
+      </div>
+    </div>
+  );
 }
 
-export default Cavalo
+export default Cavalo;

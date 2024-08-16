@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
+import './Cartao.css';
 
 const Cartao = (props) => {
-    return(
-        <div className='card'>
-            {/*Corpo do cartão*/}
-            <div className='card-body'>
-                {props.children}
-            </div>
-        </div>
-    )
+  return (
+    <div className='cartao'>
+      <div className='cartao-corpo'>
+        {props.children}
+      </div>
+    </div>
+  );
 }
 
-export default Cartao
+export default Cartao;

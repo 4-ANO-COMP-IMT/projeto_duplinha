@@ -1,15 +1,17 @@
-import React from 'react'
+import React from 'react';
+import './VerCavalo.css';
 
 const VerCavalo = (props) => {
-    return(
-        <div className='d-flex justify-content-evenly m-2'>
-            <button
-            type='button'
-            onClick={props.funcaoVerCavalo}
-            className='btn btn-primary'>{props.textoBotao}
-            </button>
-        </div>
-    )
+  return (
+    <div className='ver-cavalo'>
+      <button
+        type='button'
+        onClick={props.funcaoVerCavalo}
+        className='ver-cavalo-botao'>
+        {props.textoBotao}
+      </button>
+    </div>
+  );
 }
 
-export default VerCavalo
+export default VerCavalo;

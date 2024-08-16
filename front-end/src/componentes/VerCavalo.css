@@ -1,0 +1,21 @@
+/* VerCavalo.css */
+
+.ver-cavalo {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .ver-cavalo-botao {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ver-cavalo-botao:hover {
+    background-color: #2980b9;
+  }
+  

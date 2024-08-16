@@ -71,7 +71,7 @@ class ExibeCavalos extends React.Component {
           </div>
           <div className="exibe-itens-list">
             {listaCavalos.map((cavalo) => (
-              <Cartao key={cavalo.id}>
+              <Cartao key={cavalo.idCavalo}>
                 <Cavalo
                   icone="fa-solid fa-horse-head fa-2x"
                   nome={cavalo.infos.nome}

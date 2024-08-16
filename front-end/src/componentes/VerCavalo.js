@@ -1,5 +1,5 @@
 import React from 'react';
-import './VerCavalo.css';
+import '../css/VerCavalo.css';
 
 const VerCavalo = (props) => {
   return (

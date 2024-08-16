@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import "./ExibeCavalos.css"; // Arquivo CSS para estilização
+import "../css/ExibeCavalos.css"; // Arquivo CSS para estilização
 import Cavalo from "../componentes/Cavalo";
 import Cartao from "../componentes/Cartao";
 import VerCavalo from "../componentes/VerCavalo";

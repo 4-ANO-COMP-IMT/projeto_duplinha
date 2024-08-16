@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './componentes/Sidebar';
 import ExibeCavalos from './telas/ExibeCavalos';
 import ExibeProprietarios from './telas/ExibeProprietarios';
-import './App.css';
+import './css/App.css';
 
 const App = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cavalo.css';
+import '../css/Cavalo.css';
 
 const Cavalo = (props) => {
   return (

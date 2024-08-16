@@ -4,7 +4,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "../css/ExibeCavalos.css"; // Arquivo CSS para estilização
 import Cavalo from "../componentes/Item";
 import Cartao from "../componentes/Cartao";
-import VerCavalo from "../componentes/VerCavalo";
+import VerItem from "../componentes/VerItem";
 
 class ExibeCavalos extends React.Component {
   constructor(props) {
@@ -78,7 +78,7 @@ class ExibeCavalos extends React.Component {
                   baia={cavalo.infos.baia}
                   pelagem={cavalo.infos.pelagem}
                 />
-                <VerCavalo textoBotao={this.state.textoBotao} funcaoVerItem={this.funcaoVerItem} />
+                <VerItem textoBotao={this.state.textoBotao} funcaoVerItem={this.funcaoVerItem} />
               </Cartao>
             ))}
           </div>

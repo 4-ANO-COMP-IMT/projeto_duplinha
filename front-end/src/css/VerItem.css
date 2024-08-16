@@ -1,11 +1,11 @@
-/* VerCavalo.css */
+/* VerItem.css */
 
-.ver-cavalo {
+.ver-item {
     text-align: center;
     margin-top: 10px;
   }
   
-  .ver-cavalo-botao {
+  .ver-item-botao {
     background-color: #3498db;
     color: #fff;
     padding: 10px 20px;
@@ -15,7 +15,7 @@
     transition: background-color 0.3s;
   }
   
-  .ver-cavalo-botao:hover {
+  .ver-item-botao:hover {
     background-color: #2980b9;
   }
   

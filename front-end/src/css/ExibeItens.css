@@ -1,25 +1,25 @@
-/* ExibeCavalos.css */
+/* ExibeItens.css */
 
-.exibe-cavalos-container {
+.exibe-itens-container {
     padding: 20px;
     background-color: #ecf0f1;
     min-height: 100vh;
   }
   
-  .exibe-cavalos-header {
+  .exibe-itens-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
   }
   
-  .exibe-cavalos-title {
+  .exibe-itens-title {
     font-size: 32px;
     font-weight: 700;
     color: #2c3e50;
   }
   
-  .exibe-cavalos-button {
+  .exibe-itens-button {
     background-color: #1abc9c;
     color: #fff;
     padding: 10px 20px;
@@ -29,17 +29,17 @@
     transition: background-color 0.3s;
   }
   
-  .exibe-cavalos-button:hover {
+  .exibe-itens-button:hover {
     background-color: #16a085;
   }
   
-  .exibe-cavalos-loading {
+  .exibe-itens-loading {
     text-align: center;
     font-size: 18px;
     color: #7f8c8d;
   }
   
-  .exibe-cavalos-list {
+  .exibe-itens-list {
     display: flex;
     flex-direction: column;
     gap: 20px;

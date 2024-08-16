@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import "@fortawesome/fontawesome-free/css/all.css";
-import "../css/ExibeCavalos.css"; // Arquivo CSS para estilização
+import "../css/ExibeItens.css"; // Arquivo CSS para estilização
 import Cavalo from "../componentes/Item";
 import Cartao from "../componentes/Cartao";
 import VerItem from "../componentes/VerItem";
@@ -36,25 +36,25 @@ class ExibeCavalos extends React.Component {
 
     if (carregando) {
       return (
-        <div className="exibe-cavalos-container">
-          <div className="exibe-cavalos-header">
-            <h1 className="exibe-cavalos-title">Cavalos</h1>
-            <button onClick={this.acessaDados} className="exibe-cavalos-button">
+        <div className="exibe-itens-container">
+          <div className="exibe-itens-header">
+            <h1 className="exibe-itens-title">Cavalos</h1>
+            <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
             </button>
           </div>
-          <div className="exibe-cavalos-loading">
+          <div className="exibe-itens-loading">
             <Cartao>Carregando...</Cartao>
           </div>
         </div>
       );
     } else if (erro) {
       return (
-        <div className="exibe-cavalos-container">
-          <div className="exibe-cavalos-header">
-            <h1 className="exibe-cavalos-title">Erro</h1>
+        <div className="exibe-itens-container">
+          <div className="exibe-itens-header">
+            <h1 className="exibe-itens-title">Erro</h1>
             <p>{erro}</p>
-            <button onClick={this.acessaDados} className="exibe-cavalos-button">
+            <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
             </button>
           </div>
@@ -62,14 +62,14 @@ class ExibeCavalos extends React.Component {
       );
     } else {
       return (
-        <div className="exibe-cavalos-container">
-          <div className="exibe-cavalos-header">
-            <h1 className="exibe-cavalos-title">Cavalos</h1>
-            <button onClick={this.acessaDados} className="exibe-cavalos-button">
+        <div className="exibe-itens-container">
+          <div className="exibe-itens-header">
+            <h1 className="exibe-itens-title">Cavalos</h1>
+            <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
             </button>
           </div>
-          <div className="exibe-cavalos-list">
+          <div className="exibe-itens-list">
             {listaCavalos.map((cavalo) => (
               <Cartao key={cavalo.id}>
                 <Cavalo

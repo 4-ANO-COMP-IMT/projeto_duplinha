@@ -1,27 +1,27 @@
-/* Cavalo.css */
+/* Item.css */
 
-.cavalo {
+.item {
     display: flex;
     align-items: center;
     padding: 10px 0;
   }
   
-  .cavalo-icone {
+  .item-icone {
     color: #1abc9c;
     margin-right: 15px;
   }
   
-  .cavalo-detalhes {
+  .item-detalhes {
     flex-grow: 1;
   }
   
-  .cavalo-nome {
+  .item-nome {
     font-size: 22px;
     color: #2c3e50;
     margin: 0;
   }
   
-  .cavalo-info {
+  .item-info {
     font-size: 16px;
     color: #7f8c8d;
     margin: 5px 0 0;

@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import "@fortawesome/fontawesome-free/css/all.css";
 import "../css/ExibeCavalos.css"; // Arquivo CSS para estilização
-import Cavalo from "../componentes/Cavalo";
+import Cavalo from "../componentes/Item";
 import Cartao from "../componentes/Cartao";
 import VerCavalo from "../componentes/VerCavalo";
 
@@ -12,7 +13,7 @@ class ExibeCavalos extends React.Component {
       listaCavalos: null,
       carregando: true,
       erro: null,
-      funcaoVerCavalo: null,
+      funcaoVerItem: null,
       textoBotao: "Ver Cavalo"
     };
   }
@@ -28,7 +29,7 @@ class ExibeCavalos extends React.Component {
       });
   }
 
-  funcaoVerCavalo = () => alert('[Informações completas do cavalo]');
+  funcaoVerItem = () => alert('[Informações completas do cavalo]');
 
   render() {
     const { listaCavalos, carregando, erro } = this.state;
@@ -77,7 +78,7 @@ class ExibeCavalos extends React.Component {
                   baia={cavalo.infos.baia}
                   pelagem={cavalo.infos.pelagem}
                 />
-                <VerCavalo textoBotao={this.state.textoBotao} funcaoVerCavalo={this.funcaoVerCavalo} />
+                <VerCavalo textoBotao={this.state.textoBotao} funcaoVerItem={this.funcaoVerItem} />
               </Cartao>
             ))}
           </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import "@fortawesome/fontawesome-free/css/all.css";
 import "../css/ExibeItens.css"; // Arquivo CSS para estilização
-import Cavalo from "../componentes/Item";
+import Cavalo from "../componentes/Cavalo";
 import Cartao from "../componentes/Cartao";
 import VerItem from "../componentes/VerItem";
 

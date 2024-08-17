@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import "@fortawesome/fontawesome-free/css/all.css";
-import "../css/ExibeItens.css"; // Arquivo CSS para estilização
+import "../css/ExibeItens.css";
+import { useNavigate } from 'react-router-dom';
 import Cavalo from "../componentes/Cavalo";
 import Cartao from "../componentes/Cartao";
 import VerItem from "../componentes/VerItem";
@@ -33,6 +34,11 @@ class ExibeCavalos extends React.Component {
 
   render() {
     const { listaCavalos, carregando, erro } = this.state;
+    const navigate = this.props.navigate;
+
+    const handleCadastroCavalo = () => {
+      navigate('/cadastra-cavalo');
+    }
 
     if (carregando) {
       return (
@@ -41,6 +47,9 @@ class ExibeCavalos extends React.Component {
             <h1 className="exibe-itens-title">Cavalos</h1>
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
+            </button>
+            <button onClick={handleCadastroCavalo} className='exibe-itens-button'>
+              Cadastrar cavalo
             </button>
           </div>
           <div className="exibe-itens-loading">
@@ -57,6 +66,9 @@ class ExibeCavalos extends React.Component {
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
             </button>
+            <button onClick={handleCadastroCavalo} className='exibe-itens-button'>
+              Cadastrar cavalo
+            </button>
           </div>
         </div>
       );
@@ -67,6 +79,9 @@ class ExibeCavalos extends React.Component {
             <h1 className="exibe-itens-title">Cavalos</h1>
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
+            </button>
+            <button onClick={handleCadastroCavalo} className='exibe-itens-button'>
+              Cadastrar cavalo
             </button>
           </div>
           <div className="exibe-itens-list">
@@ -88,4 +103,7 @@ class ExibeCavalos extends React.Component {
   }
 }
 
-export default ExibeCavalos;
+export default function(props) {
+  const navigate = useNavigate();
+  return <ExibeCavalos {...props} navigate={navigate} />;
+}

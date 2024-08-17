@@ -25,7 +25,7 @@ class ExibeCavalos extends React.Component {
     const { listaCavalos, carregando, erro } = this.state;
     const navigate = this.props.navigate;
 
-    const handleAcessData = async () => {
+    const handleAccessData = async () => {
       this.setState({ carregando: true, erro: null });
       axios.get('http://localhost:4000/cavalos')
         .then(response => {
@@ -45,7 +45,7 @@ class ExibeCavalos extends React.Component {
         <div className="exibe-itens-container">
           <div className="exibe-itens-header">
             <h1 className="exibe-itens-title">Cavalos</h1>
-            <button onClick={handleAcessData} className="exibe-itens-button">
+            <button onClick={handleAccessData} className="exibe-itens-button">
               Atualizar
             </button>
             <button onClick={handleCadastroCavalo} className='exibe-itens-button'>

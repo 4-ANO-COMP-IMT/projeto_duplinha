@@ -19,22 +19,22 @@ class ExibeCavalos extends React.Component {
     };
   }
 
-  acessaDados = async () => {
-    this.setState({ carregando: true, erro: null });
-    axios.get('http://localhost:4000/cavalos')
-      .then(response => {
-        this.setState({ listaCavalos: response.data, carregando: false });
-      })
-      .catch(erro => {
-        this.setState({ erro: erro.message, carregando: false });
-      });
-  }
-
   funcaoVerItem = () => alert('[Informações completas do cavalo]');
 
   render() {
     const { listaCavalos, carregando, erro } = this.state;
     const navigate = this.props.navigate;
+
+    const handleAcessData = async () => {
+      this.setState({ carregando: true, erro: null });
+      axios.get('http://localhost:4000/cavalos')
+        .then(response => {
+          this.setState({ listaCavalos: response.data, carregando: false });
+        })
+        .catch(erro => {
+          this.setState({ erro: erro.message, carregando: false });
+        });
+    }
 
     const handleCadastroCavalo = () => {
       navigate('/cadastra-cavalo');
@@ -45,7 +45,7 @@ class ExibeCavalos extends React.Component {
         <div className="exibe-itens-container">
           <div className="exibe-itens-header">
             <h1 className="exibe-itens-title">Cavalos</h1>
-            <button onClick={this.acessaDados} className="exibe-itens-button">
+            <button onClick={handleAcessData} className="exibe-itens-button">
               Atualizar
             </button>
             <button onClick={handleCadastroCavalo} className='exibe-itens-button'>

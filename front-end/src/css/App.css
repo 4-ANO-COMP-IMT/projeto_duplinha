@@ -5,8 +5,8 @@
   }
   
   .content {
-    margin-left: 250px; /* O mesmo valor da largura da sidebar */
+    margin-left: 250px;
     padding: 20px;
-    width: calc(100% - 250px); /* Ajuste automático da largura */
+    width: calc(100% - 250px);
   }
   

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import "@fortawesome/fontawesome-free/css/all.css";
-import "../css/ExibeItens.css"; // Arquivo CSS para estilização
+import "../css/ExibeItens.css";
 import Proprietario from "../componentes/Proprietario";
 import Cartao from "../componentes/Cartao";
 import VerItem from "../componentes/VerItem";
@@ -73,7 +73,7 @@ class ExibeProprietarios extends React.Component {
             {listaProprietarios.map((proprietario) => (
               <Cartao key={proprietario.idProprietario}>
                 <Proprietario
-                  icone="fa-solid fa-horse-head fa-2x"
+                  icone={"fa-solid fa-user fa-2x"}
                   nome={proprietario.infos.nome + " " + proprietario.infos.sobrenome}
                   telefone={proprietario.infos.telefone}
                   email={proprietario.infos.email}

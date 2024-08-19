@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CartaoSelecao from './CartaoSelecao';
-import Cavalo from './Cavalo';
 
 class ListaCavalos extends Component {
   constructor(props) {
@@ -22,19 +21,20 @@ class ListaCavalos extends Component {
       });
   }
 
-  handleCheckboxChange = (cavaloId) => {
+  handleCheckboxChange = (id) => {
     this.setState(prevState => {
       const { cavalosSelecionados } = prevState;
-      const isSelecionado = cavalosSelecionados.includes(cavaloId);
-      const novosSelecionados = isSelecionado
-        ? cavalosSelecionados.filter(id => id !== cavaloId)
-        : [...cavalosSelecionados, cavaloId];
-
-      return { cavalosSelecionados: novosSelecionados };
+      if (cavalosSelecionados.includes(id)) {
+        return {
+            cavalosSelecionados: cavalosSelecionados.filter(idCavalo => idCavalo !== id)
+        };
+      } else {
+        return {
+            cavalosSelecionados: [...cavalosSelecionados, id]
+        };
+      }
     });
   };
-
-
 
   render() {
     return (

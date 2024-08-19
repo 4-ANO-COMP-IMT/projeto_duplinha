@@ -80,6 +80,7 @@ class CadastraProprietario extends React.Component {
           .then(response => {
             console.log('Proprietário cadastrado com sucesso:', response.data);
             this.setState(this.defaultState);
+            this.listaCavalosRef.setState({ cavalosSelecionados: [] });
             navigate('/proprietarios');
           })
           .catch(error => {

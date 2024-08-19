@@ -4,6 +4,8 @@
     padding: 20px;
     background-color: #ecf0f1;
     min-height: 100vh;
+    max-width: 600px; /* Define um comprimento máximo para o formulário */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
   }
   
   .cadastro-title {
@@ -13,12 +15,21 @@
     margin-bottom: 20px;
   }
   
+  .form-group label {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .form-radio-button {
+    margin-bottom: 15px;
+  }
+
   .form-group {
     margin-bottom: 15px;
   }
   
   .form-control {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #bdc3c7;

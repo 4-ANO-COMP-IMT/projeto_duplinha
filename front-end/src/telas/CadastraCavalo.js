@@ -117,7 +117,7 @@ class CadastraCavalo extends React.Component {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-radio-button">
             <label>Castrado?</label>
             <div>
                 <input
@@ -144,7 +144,7 @@ class CadastraCavalo extends React.Component {
                 <label htmlFor="castradoNao">Não</label>
             </div>
             </div>
-            <div className="form-group">
+            <div className="form-radio-button">
             <label>Sexo</label>
             <div>
                 <input
@@ -171,7 +171,7 @@ class CadastraCavalo extends React.Component {
                 <label htmlFor="sexoMacho">Macho</label>
             </div>
             </div>
-            <div className="form-group">
+            <div className="form-radio-button">
             <label>Tipo de Registro</label>
             <div>
                 <input

@@ -1,29 +1,29 @@
 /* Proprietario.css */
 
 .proprietario {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  .proprietario-icone {
-    color: #1abc9c;
-    margin-right: 15px;
-  }
-  
-  .proprietario-detalhes {
-    flex-grow: 1;
-  }
-  
-  .proprietario-nome {
-    font-size: 22px;
-    color: #2c3e50;
-    margin: 0;
-  }
-  
-  .proprietario-info {
-    font-size: 16px;
-    color: #7f8c8d;
-    margin: 5px 0 0;
-  }
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.proprietario-icone {
+  color: #1abc9c;
+  margin-right: 15px;
+}
+
+.proprietario-detalhes {
+  flex-grow: 1;
+}
+
+.proprietario-nome {
+  font-size: 22px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.proprietario-info {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin: 5px 0 0;
+}
   

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import "@fortawesome/fontawesome-free/css/all.css";
 import '../css/Cadastro.css';
@@ -21,13 +21,24 @@ class CadastraCavalo extends React.Component {
     };
   }
 
+  defaultState = {
+    nome: null,
+    raca: null,
+    dtNasc: null,
+    pelagem: null,
+    castrado: null,
+    sexo: null,
+    registro_tp: null,
+    registro_num: null,
+    chip: null,
+    baia: null,
+  };
+
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
         };
 
   render() {
-    const { nome, raca, dtNasc, pelagem, castrado, sexo, registro_tp, registro_num, chip, baia } = this.state;
-
     const navigate = this.props.navigate;
 
     const handleSendData = (e) => {
@@ -36,31 +47,21 @@ class CadastraCavalo extends React.Component {
         const novoCavalo = {
             nome: this.state.nome,
             raca: this.state.raca,
-            dtNasc: this.state.dtNasc,
+            dt_nasc: this.state.dtNasc,
             pelagem: this.state.pelagem,
             castrado: this.state.castrado,
             sexo: this.state.sexo,
-            registro_tp: this.state.registro_tp,
-            registro_num: this.state.registro_num,
-            chip: this.state.chip,
+            num_reg: this.state.registro_num,
+            num_chip: this.state.chip,
+            tipo_reg: this.state.registro_tp,
             baia: this.state.baia,
         };
 
         axios.post('http://localhost:4000/cavalos', novoCavalo)
         .then(response => {
             console.log('Cavalo cadastrado com sucesso:', response.data);
-            this.setState({
-                nome: '',
-                raca: '',
-                dtNasc: '',
-                pelagem: '',
-                castrado: '',
-                sexo: '',
-                registro_tp: '',
-                registro_num: '',
-                chip: '',
-                baia: '',
-            });
+            this.setState(this.defaultState);
+            navigate('/');
         })
         .catch(error => {
             console.error('Erro ao cadastrar novo cavalo:', error);
@@ -101,7 +102,7 @@ class CadastraCavalo extends React.Component {
                 type="date"
                 className="form-control"
                 name="dtNasc"
-                value={dtNasc}
+                value={this.state.dtNasc}
                 onChange={this.handleChange}
                 required
               />
@@ -112,7 +113,7 @@ class CadastraCavalo extends React.Component {
                 type="text"
                 className="form-control"
                 name="pelagem"
-                value={pelagem}
+                value={this.state.pelagem}
                 onChange={this.handleChange}
                 required
               />
@@ -202,7 +203,7 @@ class CadastraCavalo extends React.Component {
                 type="number"
                 className="form-control"
                 name="registro_num"
-                value={registro_num}
+                value={this.state.registro_num}
                 onChange={this.handleChange}
               />
             </div>
@@ -212,7 +213,7 @@ class CadastraCavalo extends React.Component {
                 type="number"
                 className="form-control"
                 name="chip"
-                value={chip}
+                value={this.state.chip}
                 onChange={this.handleChange}
               />
             </div>
@@ -222,9 +223,8 @@ class CadastraCavalo extends React.Component {
                 type="text"
                 className="form-control"
                 name="baia"
-                value={baia}
+                value={this.state.baia}
                 onChange={this.handleChange}
-                required
               />
             </div>
             <button type="submit" className="cadastro-button">

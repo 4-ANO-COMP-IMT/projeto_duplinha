@@ -1,14 +1,14 @@
-/* Cavalo.css */
+/* CavaloSelecao.css */
 
 .cavalo {
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .cavalo-icone {
   color: #1abc9c;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 
 .cavalo-detalhes {
@@ -16,14 +16,8 @@
 }
 
 .cavalo-nome {
-  font-size: 22px;
+  font-size: 16px;
   color: #2c3e50;
   margin: 0;
-}
-
-.cavalo-info {
-  font-size: 16px;
-  color: #7f8c8d;
-  margin: 5px 0 0;
 }
   

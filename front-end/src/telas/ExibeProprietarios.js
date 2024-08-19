@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "@fortawesome/fontawesome-free/css/all.css";
 import "../css/ExibeItens.css";
@@ -34,6 +35,12 @@ class ExibeProprietarios extends React.Component {
   render() {
     const { listaProprietarios, carregando, erro } = this.state;
 
+    const navigate = this.props.navigate;
+
+    const handleCadastroProprietario = () => {
+      navigate('/cadastra-proprietario');
+    }
+  
     if (carregando) {
       return (
         <div className="exibe-itens-container">
@@ -41,6 +48,9 @@ class ExibeProprietarios extends React.Component {
             <h1 className="exibe-itens-title">Proprietários</h1>
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
+            </button>
+            <button onClick={handleCadastroProprietario} className='exibe-itens-button'>
+              Cadastrar proprietário
             </button>
           </div>
           <div className="exibe-itens-loading">
@@ -57,6 +67,9 @@ class ExibeProprietarios extends React.Component {
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
             </button>
+            <button onClick={handleCadastroProprietario} className='exibe-itens-button'>
+              Cadastrar proprietário
+            </button>
           </div>
         </div>
       );
@@ -67,6 +80,9 @@ class ExibeProprietarios extends React.Component {
             <h1 className="exibe-itens-title">Proprietários</h1>
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
+            </button>
+            <button onClick={handleCadastroProprietario} className='exibe-itens-button'>
+              Cadastrar proprietário
             </button>
           </div>
           <div className="exibe-itens-list">
@@ -88,4 +104,7 @@ class ExibeProprietarios extends React.Component {
   }
 }
 
-export default ExibeProprietarios;
+export default function(props) {
+  const navigate = useNavigate();
+  return <ExibeProprietarios {...props} navigate={navigate} />;
+}

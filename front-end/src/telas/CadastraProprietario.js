@@ -54,6 +54,10 @@ class CadastraProprietario extends React.Component {
   render() {
     const navigate = this.props.navigate;
 
+    const handleCadastroCavalo = () => {
+      navigate('/cadastra-cavalo');
+    }
+
     const handleSendData = (e) => {
         e.preventDefault();
     
@@ -91,9 +95,12 @@ class CadastraProprietario extends React.Component {
     return (
         <div className="cadastro-container">
           <h1 className="cadastro-title">Cadastrar Novo Proprietário</h1>
-          <h2 className="cadastro-internal-title">Selecione seus cavalos</h2>
+          <h2 className="cadastro-internal-title">Selecione seus cavalos</h2>       
           <form onSubmit={handleSendData}>
           <ListaCavalos ref={ref => (this.listaCavalosRef = ref)} />
+          {this.state.cavalosCadastrados.length == 0 ? (<button onClick={handleCadastroCavalo} className='cadastro-button'>
+              Cadastrar cavalo
+            </button>) : ""}         
           <div className="form-group">
             <label>Nome:</label>
                 <input

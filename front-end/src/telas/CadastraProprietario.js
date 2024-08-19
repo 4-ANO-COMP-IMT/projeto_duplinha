@@ -27,6 +27,16 @@ class CadastraProprietario extends React.Component {
     };
   }
 
+  componentDidMount() {
+    axios.get('http://localhost:4000/cavalos')
+      .then(response => {
+        this.setState({ cavalosCadastrados: response.data });
+      })
+      .catch(error => {
+        console.error('Erro ao carregar cavalos:', error);
+      });
+  }
+
   defaultState = {
     nome: null,
     sobrenome: null,

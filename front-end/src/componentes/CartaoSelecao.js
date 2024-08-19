@@ -9,12 +9,12 @@ const CartaoSelecao = (props) => {
         onClick={props.onClick}
         >
         <div className='cartao-corpo'>
-            <div className="cavalo">
-            <div className="cavalo-icone">
+            <div className="cavalo-selecao">
+            <div className="cavalo-selecao-icone">
                 <i className="fa-solid fa-horse-head"></i>
             </div>
-            <div className="cavalo-detalhes">
-                <h4 className="cavalo-nome">{props.nome}</h4>
+            <div className="cavalo-selecao-detalhes">
+                <h4 className="cavalo-selecao-nome">{props.nome}</h4>
             </div>
             </div>
         </div>

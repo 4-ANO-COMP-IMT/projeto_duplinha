@@ -1,0 +1,65 @@
+/* Cadastro.css */
+
+.cadastro-container {
+padding: 20px;
+background-color: #ecf0f1;
+min-height: 100vh;
+max-width: 600px; 
+margin: 0 auto;
+}
+
+.cadastro-title {
+font-size: 32px;
+font-weight: 700;
+color: #2c3e50;
+margin-bottom: 20px;
+}
+
+.cadastro-internal-title {
+font-size: 20px;
+font-weight: 700;
+color: #2c3e50;
+margin-bottom: 10px;
+}
+
+.form-group label, .form-subgroup label {
+display: block;
+margin-bottom: 15px;
+}
+
+.form-radio-button {
+margin-bottom: 15px;
+}
+
+.form-group {
+margin-bottom: 15px;
+}
+
+.form-subgroup {
+margin-bottom: 15px;
+margin-left: 20px;
+}
+
+.form-control {
+width: 50%;
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #bdc3c7;
+}
+
+.cadastro-button {
+background-color: #1abc9c;
+color: #fff;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+margin-top: 20px;
+margin-bottom: 20px;;
+}
+
+.cadastro-button:hover {
+background-color: #16a085;
+}
+  

@@ -1,21 +1,21 @@
 /* VerItem.css */
 
 .ver-item {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .ver-item-botao {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .ver-item-botao:hover {
-    background-color: #2980b9;
-  }
+  text-align: center;
+  margin-top: 10px;
+}
+
+.ver-item-botao {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ver-item-botao:hover {
+  background-color: #2980b9;
+}
   

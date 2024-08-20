@@ -1,0 +1,23 @@
+/* CavaloSelecao.css */
+
+.cavalo-selecao {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.cavalo-selecao-icone {
+  color: #1abc9c;
+  margin-right: 5px;
+}
+
+.cavalo-selecao-detalhes {
+  flex-grow: 1;
+}
+
+.cavalo-selecao-nome {
+  font-size: 16px;
+  color: #2c3e50;
+  margin: 0;
+}
+  

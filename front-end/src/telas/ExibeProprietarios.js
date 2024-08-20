@@ -1,7 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "@fortawesome/fontawesome-free/css/all.css";
-import "../css/ExibeItens.css"; // Arquivo CSS para estilização
+import "../css/ExibeItens.css";
 import Proprietario from "../componentes/Proprietario";
 import Cartao from "../componentes/Cartao";
 import VerItem from "../componentes/VerItem";
@@ -34,6 +35,12 @@ class ExibeProprietarios extends React.Component {
   render() {
     const { listaProprietarios, carregando, erro } = this.state;
 
+    const navigate = this.props.navigate;
+
+    const handleCadastroProprietario = () => {
+      navigate('/cadastra-proprietario');
+    }
+  
     if (carregando) {
       return (
         <div className="exibe-itens-container">
@@ -41,6 +48,9 @@ class ExibeProprietarios extends React.Component {
             <h1 className="exibe-itens-title">Proprietários</h1>
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
+            </button>
+            <button onClick={handleCadastroProprietario} className='exibe-itens-button'>
+              Cadastrar proprietário
             </button>
           </div>
           <div className="exibe-itens-loading">
@@ -57,6 +67,9 @@ class ExibeProprietarios extends React.Component {
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
             </button>
+            <button onClick={handleCadastroProprietario} className='exibe-itens-button'>
+              Cadastrar proprietário
+            </button>
           </div>
         </div>
       );
@@ -68,12 +81,15 @@ class ExibeProprietarios extends React.Component {
             <button onClick={this.acessaDados} className="exibe-itens-button">
               Atualizar
             </button>
+            <button onClick={handleCadastroProprietario} className='exibe-itens-button'>
+              Cadastrar proprietário
+            </button>
           </div>
           <div className="exibe-itens-list">
             {listaProprietarios.map((proprietario) => (
               <Cartao key={proprietario.idProprietario}>
                 <Proprietario
-                  icone="fa-solid fa-horse-head fa-2x"
+                  icone={"fa-solid fa-user fa-2x"}
                   nome={proprietario.infos.nome + " " + proprietario.infos.sobrenome}
                   telefone={proprietario.infos.telefone}
                   email={proprietario.infos.email}
@@ -88,4 +104,7 @@ class ExibeProprietarios extends React.Component {
   }
 }
 
-export default ExibeProprietarios;
+export default function(props) {
+  const navigate = useNavigate();
+  return <ExibeProprietarios {...props} navigate={navigate} />;
+}

@@ -1,29 +1,29 @@
-/* Item.css */
+/* Cavalo.css */
 
 .cavalo {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  .cavalo-icone {
-    color: #1abc9c;
-    margin-right: 15px;
-  }
-  
-  .cavalo-detalhes {
-    flex-grow: 1;
-  }
-  
-  .cavalo-nome {
-    font-size: 22px;
-    color: #2c3e50;
-    margin: 0;
-  }
-  
-  .cavalo-info {
-    font-size: 16px;
-    color: #7f8c8d;
-    margin: 5px 0 0;
-  }
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.cavalo-icone {
+  color: #1abc9c;
+  margin-right: 15px;
+}
+
+.cavalo-detalhes {
+  flex-grow: 1;
+}
+
+.cavalo-nome {
+  font-size: 22px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.cavalo-info {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin: 5px 0 0;
+}
   

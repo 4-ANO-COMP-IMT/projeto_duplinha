@@ -1,47 +1,47 @@
 /* ExibeItens.css */
 
 .exibe-itens-container {
-    padding: 20px;
-    background-color: #ecf0f1;
-    min-height: 100vh;
-  }
-  
-  .exibe-itens-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .exibe-itens-title {
-    font-size: 32px;
-    font-weight: 700;
-    color: #2c3e50;
-  }
-  
-  .exibe-itens-button {
-    background-color: #1abc9c;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .exibe-itens-button:hover {
-    background-color: #16a085;
-  }
-  
-  .exibe-itens-loading {
-    text-align: center;
-    font-size: 18px;
-    color: #7f8c8d;
-  }
-  
-  .exibe-itens-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+  padding: 20px;
+  background-color: #ecf0f1;
+  min-height: 100vh;
+}
+
+.exibe-itens-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.exibe-itens-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.exibe-itens-button {
+  background-color: #1abc9c;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.exibe-itens-button:hover {
+  background-color: #16a085;
+}
+
+.exibe-itens-loading {
+  text-align: center;
+  font-size: 18px;
+  color: #7f8c8d;
+}
+
+.exibe-itens-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
   

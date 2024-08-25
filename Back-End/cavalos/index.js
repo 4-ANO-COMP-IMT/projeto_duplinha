@@ -9,6 +9,21 @@ app.use(cors())
 const cavalos = []
 let pos = 0
 
+const funcoes = {
+    ProprietarioCriado: (proprietario) => {
+        //Seleciona array de cavalos do proprietário criado
+        const cavalosParaAtualizar = proprietario.infos.id_cavalos
+        //Adiciona propritário a cada cavalo selecionado no cadastro
+        cavalosParaAtualizar.array.forEach(cavalo => {
+            const cavalo_cadastrado = cavalos.find(cavalo_cad => cavalo_cad.idCavalo === cavalos.idCavalo)
+            cavalo_cadastrado.infos.id_proprietarios.push(proprietario.idProprietario)
+            //Substitui as informações do cavalo no sistema
+            const indice = cavalos.findIndex(cavalo_cad => cavalo_cad.idCavalo === cavalos.idCavalo)
+            cavalos[indice] = cavalo_cadastrado
+        })
+    }
+}
+
 app.get('/cavalos', (req, res) => {
     res.send(cavalos)
 })
@@ -33,6 +48,9 @@ app.post('/cavalos', async (req, res) => {
 })
 
 app.post('/eventos', (req, res) => {
+    try{
+        funcoes[req.body.tipo](req.body.dados)
+    } catch(err){}
     res.status(200).send({msg: 'ok'})
   })
 

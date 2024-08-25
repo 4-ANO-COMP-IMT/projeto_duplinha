@@ -23,7 +23,7 @@ app.post('/proprietarios', async (req, res) => {
     await axios.post("http://localhost:50000/eventos", {
         tipo: 'ProprietarioCriado',
         dados: {
-            idProprietario, 
+            idProprietario,
             infos
         }
       })

@@ -11,11 +11,15 @@ let pos = 0
 
 const funcoes = {
     ProprietarioCriado: (proprietario) => {
+        console.log('Entrei na função ProprietarioCriado')
         //Seleciona array de cavalos do proprietário criado
         const cavalosParaAtualizar = proprietario.infos.id_cavalos
+        console.log('Cavalos para atualizar: ' + cavalosParaAtualizar)
         //Adiciona propritário a cada cavalo selecionado no cadastro
-        cavalosParaAtualizar.array.forEach(cavalo => {
-            const cavalo_cadastrado = cavalos.find(cavalo_cad => cavalo_cad.idCavalo === cavalos.idCavalo)
+        cavalosParaAtualizar.forEach(IDcavalo => {
+            console.log("ID Cavalo: " + IDcavalo)
+            const cavalo_cadastrado = cavalos.find(cavalo_cad => cavalo_cad.idCavalo === IDcavalo)
+            console.log("Cavalo cadastrado: " + cavalo_cadastrado.idCavalo)
             cavalo_cadastrado.infos.id_proprietarios.push(proprietario.idProprietario)
             //Substitui as informações do cavalo no sistema
             const indice = cavalos.findIndex(cavalo_cad => cavalo_cad.idCavalo === cavalos.idCavalo)

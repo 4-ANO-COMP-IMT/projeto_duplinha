@@ -23,9 +23,10 @@ class CadastraProprietario extends React.Component {
       nomeContatoEmergencia: null,
       telefoneContatoEmergencia: null,
       cavalosCadastrados:[],
-      cavalosSelecionados:[],
     };
   }
+
+  navigate = this.props.navigate;
 
   componentDidMount() {
     axios.get('http://localhost:4000/cavalos')
@@ -51,66 +52,68 @@ class CadastraProprietario extends React.Component {
     email: null,
     nomeContatoEmergencia: null,
     telefoneContatoEmergencia: null,
-    cavalosCadastrados:[],
-    cavalosSelecionados: [],
     erro: null,
   };
 
+  handleDebug = () => alert(this.listaCavalosRef.state.cavalosSelecionados);
 
   handleChange = (e) => {
       this.setState({ [e.target.name]: e.target.value });
       };
 
-  render() {
-    const navigate = this.props.navigate;
+  handleCadastroCavalo = () => {
+    this.navigate('/cadastra-cavalo');
+  }
 
-    const handleCadastroCavalo = () => {
-      navigate('/cadastra-cavalo');
-    }
-
-    const handleSendData = (e) => {
-        e.preventDefault();
+  handleSendData = (e) => {
+    e.preventDefault();
     
-        const novoProprietario = {
-          nome: this.state.nome,
-          sobrenome: this.state.sobrenome,
-          cpf: this.state.cpf,
-          genero: this.state.genero,
-          dt_nasc: this.state.dtNasc,
-          telefone: this.state.telefone,
-          endereco:{
-            logradouro: this.state.logradouro,
-            complemento: this.state.complemento,
-            cidade: this.state.cidade,
-            estado: this.state.estado,
-          },
-          email: this.state.email,
-          nomeContatoEmergencia: this.state.nomeContatoEmergencia,
-          telefoneContatoEmergencia: this.state.telefoneContatoEmergencia,
-          id_cavalos: this.listaCavalosRef.state.cavalosSelecionados,
-        };
-
-        axios.post('http://localhost:5000/proprietarios', novoProprietario)
-          .then(response => {
-            console.log('Proprietário cadastrado com sucesso:', response.data);
-            this.setState(this.defaultState);
-            this.listaCavalosRef.setState({ cavalosSelecionados: [] });
-            navigate('/proprietarios');
-          })
-          .catch(error => {
-            console.error('Erro ao cadastrar o proprietário:', error);
-          });
+    if(this.listaCavalosRef.state.cavalosSelecionados.length !== 0){
+      const novoProprietario = {
+        nome: this.state.nome,
+        sobrenome: this.state.sobrenome,
+        cpf: this.state.cpf,
+        genero: this.state.genero,
+        dt_nasc: this.state.dtNasc,
+        telefone: this.state.telefone,
+        endereco:{
+          logradouro: this.state.logradouro,
+          complemento: this.state.complemento,
+          cidade: this.state.cidade,
+          estado: this.state.estado,
+        },
+        email: this.state.email,
+        nomeContatoEmergencia: this.state.nomeContatoEmergencia,
+        telefoneContatoEmergencia: this.state.telefoneContatoEmergencia,
+        id_cavalos: this.listaCavalosRef.state.cavalosSelecionados,
+      };
+  
+      axios.post('http://localhost:5000/proprietarios', novoProprietario)
+        .then(response => {
+          console.log('Proprietário cadastrado com sucesso:', response.data);
+          this.setState(this.defaultState);
+          //this.listaCavalosRef.setState({ cavalosSelecionados: [] });
+          this.navigate('/proprietarios');
+        })
+        .catch(error => {
+          console.error('Erro ao cadastrar o proprietário:', error);
+        });
     }
+    
 
+}
+
+  render() {
     return (
         <div className="cadastro-container">
           <h1 className="cadastro-title">Cadastrar Novo Proprietário</h1>
-          <h2 className="cadastro-internal-title">Selecione seus cavalos</h2>       
-          <form onSubmit={handleSendData}>
+          <h2 className="cadastro-internal-title">Selecione seus cavalos</h2>     
+          <form onSubmit={this.handleSendData}>
           <ListaCavalos ref={ref => (this.listaCavalosRef = ref)} />
-          {this.state.cavalosCadastrados.length == 0 ? (<button onClick={handleCadastroCavalo} className='cadastro-button'>
+          {this.state.cavalosCadastrados.length === 0 ? (<button onClick={this.handleCadastroCavalo} className='cadastro-button'>
               Cadastrar cavalo
-            </button>) : ""}         
+            </button>) : ""}
+          <button onClick={this.handleDebug} className='cadastro-button'>Debug</button>
           <div className="form-group">
             <label>Nome:</label>
                 <input

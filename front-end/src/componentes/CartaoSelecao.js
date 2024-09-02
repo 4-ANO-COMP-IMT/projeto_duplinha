@@ -23,7 +23,6 @@ const CartaoSelecao = (props) => {
         checked={props.selecionado} 
         onChange={props.onClick} 
         className="cartao-checkbox"
-        required
         />
         </div>
     );

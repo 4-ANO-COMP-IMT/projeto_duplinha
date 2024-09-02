@@ -18,6 +18,7 @@ class CadastraCavalo extends React.Component {
       registro_num: null,
       chip: null,
       baia: null,
+      id_proprietarios: []
     };
   }
 
@@ -32,6 +33,7 @@ class CadastraCavalo extends React.Component {
     registro_num: null,
     chip: null,
     baia: null,
+    id_proprietarios: []
   };
 
     handleChange = (e) => {
@@ -55,6 +57,7 @@ class CadastraCavalo extends React.Component {
             num_chip: this.state.chip,
             tipo_reg: this.state.registro_tp,
             baia: this.state.baia,
+            id_proprietarios: this.state.id_proprietarios
         };
 
         axios.post('http://localhost:4000/cavalos', novoCavalo)

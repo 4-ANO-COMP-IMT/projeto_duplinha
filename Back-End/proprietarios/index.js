@@ -19,14 +19,17 @@ app.post('/proprietarios', async (req, res) => {
     proprietarios[pos] = {
         idProprietario, infos
     }
+    console.log('Criou o proprietário')
 
     await axios.post("http://localhost:50000/eventos", {
         tipo: 'ProprietarioCriado',
         dados: {
-            idProprietario, 
+            idProprietario,
             infos
         }
       })
+
+      console.log('Enviou proprietário para os eventos')
 
     res.status(201).send(proprietarios[pos])
     pos++

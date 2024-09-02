@@ -14,12 +14,21 @@ class ExibeCavalos extends React.Component {
       listaCavalos: null,
       carregando: true,
       erro: null,
-      funcaoVerItem: null,
+      handleExibeCavalo: null,
       textoBotao: "Ver Cavalo"
     };
   }
 
-  funcaoVerItem = () => alert('[Informações completas do cavalo]');
+  componentDidMount = async () => {
+    this.setState({ carregando: true, erro: null });
+    axios.get('http://localhost:4000/cavalos')
+      .then(response => {
+        this.setState({ listaCavalos: response.data, carregando: false });
+      })
+      .catch(erro => {
+        this.setState({ erro: erro.message, carregando: false });
+      });
+  }
 
   render() {
     const { listaCavalos, carregando, erro } = this.state;
@@ -34,6 +43,10 @@ class ExibeCavalos extends React.Component {
         .catch(erro => {
           this.setState({ erro: erro.message, carregando: false });
         });
+    }
+
+    const handleExibeCavalo = (idCavalo) => {
+      navigate(`/cavalo/${idCavalo}`);
     }
 
     const handleCadastroCavalo = () => {
@@ -63,7 +76,7 @@ class ExibeCavalos extends React.Component {
           <div className="exibe-itens-header">
             <h1 className="exibe-itens-title">Erro</h1>
             <p>{erro}</p>
-            <button onClick={this.acessaDados} className="exibe-itens-button">
+            <button onClick={handleAccessData} className="exibe-itens-button">
               Atualizar
             </button>
             <button onClick={handleCadastroCavalo} className='exibe-itens-button'>
@@ -77,7 +90,7 @@ class ExibeCavalos extends React.Component {
         <div className="exibe-itens-container">
           <div className="exibe-itens-header">
             <h1 className="exibe-itens-title">Cavalos</h1>
-            <button onClick={this.acessaDados} className="exibe-itens-button">
+            <button onClick={handleAccessData} className="exibe-itens-button">
               Atualizar
             </button>
             <button onClick={handleCadastroCavalo} className='exibe-itens-button'>
@@ -93,7 +106,7 @@ class ExibeCavalos extends React.Component {
                   baia={cavalo.infos.baia}
                   pelagem={cavalo.infos.pelagem}
                 />
-                <VerItem textoBotao={this.state.textoBotao} funcaoVerItem={this.funcaoVerItem} />
+                <VerItem textoBotao={this.state.textoBotao} funcaoVerItem={() => handleExibeCavalo(cavalo.idCavalo)} />
               </Cartao>
             ))}
           </div>

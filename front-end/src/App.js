@@ -5,6 +5,7 @@ import ExibeCavalos from './telas/ExibeCavalos';
 import ExibeProprietarios from './telas/ExibeProprietarios';
 import CadastraCavalo from './telas/CadastraCavalo';
 import CadastraProprietario from './telas/CadastraProprietario';
+import ExibeCavalo from './telas/ExibeCavalo';
 import './css/App.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/proprietarios" element={<ExibeProprietarios />} />
             <Route path="/cadastra-cavalo" element={<CadastraCavalo />} />
             <Route path="/cadastra-proprietario" element={<CadastraProprietario />} />
+            <Route path="/cavalo/:idCavalo" element={<ExibeCavalo />} />
           </Routes>
         </div>
       </div>

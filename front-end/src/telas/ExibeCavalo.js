@@ -32,6 +32,46 @@ class ExibeCavalo extends Component {
       });
   }
 
+  calcularIdade = (dataNascimento) => {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+
+    // Ajusta a idade se o aniversário ainda não tiver ocorrido no ano atual
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+      idade--;
+    }
+
+    return idade;
+  };
+
+  escreveSexo = (sexo) => {
+    if(sexo === "F"){
+        return "Fêmea"
+    } else {
+        return "Macho"
+    }
+  }
+
+  escreveRegistro = (numReg, tipoReg) => {
+    if(tipoReg === "Provisório"){
+        return numReg + "/P"
+    } else if (tipoReg === "Definitivo"){
+        return numReg + "/D"
+    } else {
+        return "Sem registro"
+    }
+  }
+
+  escreveBaia = (baia) => {
+    if(baia !== null){
+        return baia
+    } else {
+        return "Pasto"
+    }
+  }
+
   render() {
     const { cavalo, carregando, erro } = this.state;
 
@@ -44,13 +84,19 @@ class ExibeCavalo extends Component {
     }
 
     return (
-      <div className="exibe-cadastro-container">
-        <h1>{cavalo.infos.nome}</h1>
-        <p>Raça: {cavalo.infos.raca}</p>
-        <p>Idade: {cavalo.infos.idade}</p>
-        <p>Sexo: {cavalo.infos.sexo}</p>
-        <p>Castrado: {cavalo.infos.castrado ? 'Sim' : 'Não'}</p>
-        {/* outros campos conforme necessário */}
+        <div className="exibe-cadastro-container">
+        <h1 className="exibe-cadastro-title">{cavalo.infos.nome}</h1>
+        <div className="exibe-cadastro-info">
+          <p><strong>Raça:</strong> {cavalo.infos.raca}</p>
+          <p><strong>Idade:</strong> {this.calcularIdade(cavalo.infos.dt_nasc)} anos</p>
+          <p><strong>Pelagem:</strong> {cavalo.infos.pelagem}</p>
+          <p><strong>Sexo:</strong> {this.escreveSexo(cavalo.infos.sexo)}</p>
+          <p><strong>Castrado:</strong> {cavalo.infos.castrado}</p>
+          <p><strong>Registro:</strong> {this.escreveRegistro(cavalo.infos.num_reg, cavalo.infos.tipo_reg)}</p>
+          <p><strong>Chip:</strong> {cavalo.infos.chip}</p>
+          <p><strong>Baia:</strong> {this.escreveBaia(cavalo.infos.baia)}</p>
+          <p><strong>Proprietários:</strong> </p>
+        </div>
       </div>
     );
   }

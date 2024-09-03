@@ -93,7 +93,7 @@ class ExibeCavalo extends Component {
           <p><strong>Sexo:</strong> {this.escreveSexo(cavalo.infos.sexo)}</p>
           <p><strong>Castrado:</strong> {cavalo.infos.castrado}</p>
           <p><strong>Registro:</strong> {this.escreveRegistro(cavalo.infos.num_reg, cavalo.infos.tipo_reg)}</p>
-          <p><strong>Chip:</strong> {cavalo.infos.chip}</p>
+          <p><strong>Chip:</strong> {cavalo.infos.chip ? cavalo.infos.chip : "Não possui chip"}</p>
           <p><strong>Baia:</strong> {this.escreveBaia(cavalo.infos.baia)}</p>
           <p><strong>Proprietários:</strong> </p>
         </div>

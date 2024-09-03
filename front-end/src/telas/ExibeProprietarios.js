@@ -14,9 +14,19 @@ class ExibeProprietarios extends React.Component {
       listaProprietarios: null,
       carregando: true,
       erro: null,
-      funcaoVerItem: null,
       textoBotao: "Ver Proprietário"
     };
+  }
+
+  componentDidMount = async () => {
+    this.setState({ carregando: true, erro: null });
+    axios.get('http://localhost:5000/proprietarios')
+      .then(response => {
+        this.setState({ listaProprietarios: response.data, carregando: false });
+      })
+      .catch(erro => {
+        this.setState({ erro: erro.message, carregando: false });
+      });
   }
 
   acessaDados = async () => {
@@ -30,8 +40,6 @@ class ExibeProprietarios extends React.Component {
       });
   }
 
-  funcaoVerItem = () => alert('[Informações completas do proprietário]');
-
   render() {
     const { listaProprietarios, carregando, erro } = this.state;
 
@@ -39,6 +47,10 @@ class ExibeProprietarios extends React.Component {
 
     const handleCadastroProprietario = () => {
       navigate('/cadastra-proprietario');
+    }
+
+    const handleExibeProprietario = (idProprietario) => {
+      navigate(`/proprietario/${idProprietario}`);
     }
   
     if (carregando) {
@@ -94,7 +106,7 @@ class ExibeProprietarios extends React.Component {
                   telefone={proprietario.infos.telefone}
                   email={proprietario.infos.email}
                 />
-                <VerItem textoBotao={this.state.textoBotao} funcaoVerItem={this.funcaoVerItem} />
+                <VerItem textoBotao={this.state.textoBotao} funcaoVerItem={() => handleExibeProprietario(proprietario.idProprietario)} />
               </Cartao>
             ))}
           </div>

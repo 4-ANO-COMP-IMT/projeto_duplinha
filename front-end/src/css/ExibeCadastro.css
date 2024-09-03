@@ -7,8 +7,9 @@
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 250px; /* Espaço para a sidebar */
-    min-height: 100vh; /* Garante que a altura mínima cubra a tela inteira */
+    margin-left: 150px;
+    margin-right: 100px;
+    min-height: 100vh;
   }
   
   .exibe-cadastro-title {

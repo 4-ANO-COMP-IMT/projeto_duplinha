@@ -14,7 +14,6 @@ class ExibeProprietarios extends React.Component {
       listaProprietarios: null,
       carregando: true,
       erro: null,
-      funcaoVerItem: null,
       textoBotao: "Ver Proprietário"
     };
   }
@@ -30,8 +29,6 @@ class ExibeProprietarios extends React.Component {
       });
   }
 
-  funcaoVerItem = () => alert('[Informações completas do proprietário]');
-
   render() {
     const { listaProprietarios, carregando, erro } = this.state;
 
@@ -39,6 +36,10 @@ class ExibeProprietarios extends React.Component {
 
     const handleCadastroProprietario = () => {
       navigate('/cadastra-proprietario');
+    }
+
+    const handleExibeProprietario = (idProprietario) => {
+      navigate(`/proprietario/${idProprietario}`);
     }
   
     if (carregando) {
@@ -94,7 +95,7 @@ class ExibeProprietarios extends React.Component {
                   telefone={proprietario.infos.telefone}
                   email={proprietario.infos.email}
                 />
-                <VerItem textoBotao={this.state.textoBotao} funcaoVerItem={this.funcaoVerItem} />
+                <VerItem textoBotao={this.state.textoBotao} funcaoVerItem={() => handleExibeProprietario(proprietario.idProprietario)} />
               </Cartao>
             ))}
           </div>

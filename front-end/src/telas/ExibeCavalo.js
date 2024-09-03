@@ -28,7 +28,7 @@ class ExibeCavalo extends Component {
         }
       })
       .catch(() => {
-        this.setState({ erro: "Erro ao carregar dados dos cavalos", loading: false });
+        this.setState({ erro: "Erro ao carregar dados dos cavalos", carregando: false });
       });
   }
 

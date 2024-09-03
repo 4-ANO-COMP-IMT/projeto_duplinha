@@ -55,8 +55,6 @@ class CadastraProprietario extends React.Component {
     erro: null,
   };
 
-  handleDebug = () => alert(this.listaCavalosRef.state.cavalosSelecionados);
-
   handleChange = (e) => {
       this.setState({ [e.target.name]: e.target.value });
       };
@@ -113,7 +111,6 @@ class CadastraProprietario extends React.Component {
           {this.state.cavalosCadastrados.length === 0 ? (<button onClick={this.handleCadastroCavalo} className='cadastro-button'>
               Cadastrar cavalo
             </button>) : ""}
-          <button onClick={this.handleDebug} className='cadastro-button'>Debug</button>
           <div className="form-group">
             <label>Nome:</label>
                 <input

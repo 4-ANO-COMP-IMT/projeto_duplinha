@@ -95,7 +95,7 @@ class ExibeCavalo extends Component {
           <p><strong>Registro:</strong> {this.escreveRegistro(cavalo.infos.num_reg, cavalo.infos.tipo_reg)}</p>
           <p><strong>Chip:</strong> {cavalo.infos.chip ? cavalo.infos.chip : "Não possui chip"}</p>
           <p><strong>Baia:</strong> {this.escreveBaia(cavalo.infos.baia)}</p>
-          <p><strong>Proprietários:</strong> </p>
+          <p><strong>Proprietários:</strong> {cavalo.infos.id_proprietarios} </p>
         </div>
       </div>
     );

@@ -98,7 +98,7 @@ class ExibeProprietario extends Component {
           <p><strong>E-mail:</strong> {proprietario.infos.email}</p>
           <p><strong>Nome do contato de emergência:</strong> {proprietario.infos.nomeContatoEmergencia}</p>
           <p><strong>Telefone do contato de emergência:</strong> {proprietario.infos.telefoneContatoEmergencia}</p>
-          <p><strong>Cavalos:</strong> </p>
+          <p><strong>Cavalos:</strong> {proprietario.infos.id_cavalos} </p>
         </div>
       </div>
     );

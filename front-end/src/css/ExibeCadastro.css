@@ -1,0 +1,53 @@
+/* ExibeCadastro.css */
+
+.exibe-cadastro-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 250px; /* Espaço para a sidebar */
+    min-height: 100vh; /* Garante que a altura mínima cubra a tela inteira */
+  }
+  
+  .exibe-cadastro-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .exibe-cadastro-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .exibe-cadastro-info p {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .exibe-cadastro-info strong {
+    color: #000;
+  }
+
+  .cadastro-detalhes {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .cadastro-detalhes h2 {
+    margin-bottom: 15px;
+  }
+  
+  .cadastro-detalhes p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+  }

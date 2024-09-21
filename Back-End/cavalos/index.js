@@ -39,7 +39,7 @@ app.post('/cavalos', async (req, res) => {
         idCavalo, infos
     }
 
-    await axios.post("http://localhost:50000/eventos", {
+    await axios.post("http://192.168.56.1:50000/eventos", {
         tipo: 'CavaloCriado',
         dados: {
             idCavalo, 

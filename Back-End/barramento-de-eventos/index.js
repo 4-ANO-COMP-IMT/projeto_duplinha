@@ -9,7 +9,7 @@ app.post('/eventos', (req, res) => {
     //envia o evento para o microsserviço de cavalos
     axios.post('http://cavalos-clusterip-service:4000/eventos', evento)
     //envia o evento para o microsserviço de proprietários
-    axios.post('http://proprietarios.clusterip-service:5000/eventos', evento)
+    axios.post('http://proprietarios-clusterip-service:5000/eventos', evento)
     res.status(200).send({msg: 'ok'})
 })
 

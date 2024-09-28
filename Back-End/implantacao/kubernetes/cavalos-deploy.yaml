@@ -21,7 +21,8 @@ spec:
     spec:
       containers:
       - name: cavalos
-        image: iz120/cavalos:0.0
+        image: iz120/cavalos
+        imagePullPolicy: Never
         resources:
           limits:
             memory: 256Mi

@@ -21,7 +21,8 @@ spec:
     spec:
       containers:
       - name: proprietarios
-        image: iz120/proprietarios:0.0
+        image: iz120/proprietarios
+        imagePullPolicy: Never
         resources:
           limits:
             memory: 256Mi

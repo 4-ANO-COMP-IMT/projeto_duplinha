@@ -21,7 +21,8 @@ spec:
     spec:
       containers:
       - name: barramento-de-eventos
-        image: iz120/barramento-de-eventos:0.0
+        image: iz120/barramento-de-eventos
+        imagePullPolicy: Never
         resources:
           limits:
             memory: 256Mi

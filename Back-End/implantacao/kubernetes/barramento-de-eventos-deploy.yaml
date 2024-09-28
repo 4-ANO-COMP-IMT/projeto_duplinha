@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+# Nome do Deployment
+  name: barramento-de-eventos-deploy
+spec:
+  # Número de cópias
+  replicas: 1
+  # Especificar o rótulo
+  selector:
+    matchLabels:
+      # Deployment vai selecionar todo Pod com esse rótulo
+      app: barramento-de-eventos
+  # Modelo que vai ser usado para construir os Pods
+  template:
+    metadata:
+      labels:
+        # Pods terão esse rótulo, sendo selecionados por esse deployment
+        app: barramento-de-eventos
+      
+    spec:
+      containers:
+      - name: barramento-de-eventos
+        image: iz120/barramento-de-eventos:0.0
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: 1

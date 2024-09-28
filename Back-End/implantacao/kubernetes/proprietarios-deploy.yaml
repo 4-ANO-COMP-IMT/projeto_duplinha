@@ -39,6 +39,6 @@ spec:
     app: proprietarios
   ports:
   - name: proprietarios
-  protocol: TCP
-  port: 5000
-  taregtPort: 5000
+    protocol: TCP
+    port: 5000
+    targetPort: 5000

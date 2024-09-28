@@ -39,6 +39,6 @@ spec:
     app: cavalos
   ports:
   - name: cavalos
-  protocol: TCP
-  port: 4000
-  taregtPort: 4000
+    protocol: TCP
+    port: 4000
+    targetPort: 4000

@@ -27,3 +27,18 @@ spec:
           limits:
             memory: 256Mi
             cpu: 1
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  # Nome diferente do serviço tipo NodePort
+  name: cavalos-clusterip-service
+spec:
+  selector:
+    app: cavalos
+  ports:
+  - name: cavalos
+  protocol: TCP
+  port: 4000
+  taregtPort: 4000

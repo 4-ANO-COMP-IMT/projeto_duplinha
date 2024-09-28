@@ -21,7 +21,7 @@ app.post('/proprietarios', async (req, res) => {
     }
     console.log('Criou o proprietário')
 
-    await axios.post("http://192.168.56.1:50000/eventos", {
+    await axios.post("http://barramento-de-eventos-service:50000/eventos", {
         tipo: 'ProprietarioCriado',
         dados: {
             idProprietario,

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+# Nome do Deployment
+  name: proprietarios-deploy
+spec:
+  # Número de cópias
+  replicas: 1
+  # Especificar o rótulo
+  selector:
+    matchLabels:
+      # Deployment vai selecionar todo Pod com esse rótulo
+      app: proprietarios
+  # Modelo que vai ser usado para construir os Pods
+  template:
+    metadata:
+      labels:
+        # Pods terão esse rótulo, sendo selecionados por esse deployment
+        app: proprietarios
+      
+    spec:
+      containers:
+      - name: proprietarios
+        image: iz120/proprietarios:0.0
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: 1

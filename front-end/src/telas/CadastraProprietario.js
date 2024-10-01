@@ -29,7 +29,7 @@ class CadastraProprietario extends React.Component {
   navigate = this.props.navigate;
 
   componentDidMount() {
-    axios.get('http://localhost:4000/cavalos')
+    axios.get('http://cavalos-clusterip-service:4000/cavalos')
       .then(response => {
         this.setState({ cavalosCadastrados: response.data });
       })
@@ -86,7 +86,7 @@ class CadastraProprietario extends React.Component {
         id_cavalos: this.listaCavalosRef.state.cavalosSelecionados,
       };
   
-      axios.post('http://localhost:5000/proprietarios', novoProprietario)
+      axios.post('http://proprietarios-clusterip-service:5000/proprietarios', novoProprietario)
         .then(response => {
           console.log('Proprietário cadastrado com sucesso:', response.data);
           this.setState(this.defaultState);

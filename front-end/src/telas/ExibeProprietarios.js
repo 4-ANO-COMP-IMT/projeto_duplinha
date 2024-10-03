@@ -20,7 +20,7 @@ class ExibeProprietarios extends React.Component {
 
   componentDidMount = async () => {
     this.setState({ carregando: true, erro: null });
-    axios.get('http://localhost:5000/proprietarios')
+    axios.get('http://proprietarios-clusterip-service:5000/proprietarios')
       .then(response => {
         this.setState({ listaProprietarios: response.data, carregando: false });
       })
@@ -31,7 +31,7 @@ class ExibeProprietarios extends React.Component {
 
   acessaDados = async () => {
     this.setState({ carregando: true, erro: null });
-    axios.get('http://localhost:5000/proprietarios')
+    axios.get('http://proprietarios-clusterip-service:5000/proprietarios')
       .then(response => {
         this.setState({ listaProprietarios: response.data, carregando: false });
       })

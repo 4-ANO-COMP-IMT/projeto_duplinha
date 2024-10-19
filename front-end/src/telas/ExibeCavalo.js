@@ -16,7 +16,7 @@ class ExibeCavalo extends Component {
   componentDidMount() {
     const { idCavalo } = this.props.params;
 
-    axios.get('http://cavalos-clusterip-service:4000/cavalos')
+    axios.get('http://localhost:31661/cavalos')
       .then(response => {
         const cavalos = response.data;
         const cavaloSelecionado = cavalos.find(cavalo => cavalo.idCavalo === idCavalo);

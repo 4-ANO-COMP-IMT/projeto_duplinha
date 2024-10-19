@@ -29,7 +29,7 @@ class CadastraProprietario extends React.Component {
   navigate = this.props.navigate;
 
   componentDidMount() {
-    axios.get('http://localhost:4000/cavalos')
+    axios.get('http://cavalos-clusterip-service:4000/cavalos')
       .then(response => {
         this.setState({ cavalosCadastrados: response.data });
       })

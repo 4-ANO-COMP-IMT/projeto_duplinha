@@ -21,6 +21,7 @@ class ExibeCavalos extends React.Component {
 
   componentDidMount = async () => {
     this.setState({ carregando: true, erro: null });
+    
     axios.get('http://localhost:31661/cavalos')
       .then(response => {
         this.setState({ listaCavalos: response.data, carregando: false });
@@ -36,6 +37,7 @@ class ExibeCavalos extends React.Component {
 
     const handleAccessData = async () => {
       this.setState({ carregando: true, erro: null });
+      
       axios.get('http://localhost:31661/cavalos')
         .then(response => {
           this.setState({ listaCavalos: response.data, carregando: false });

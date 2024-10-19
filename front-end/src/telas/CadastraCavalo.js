@@ -60,7 +60,7 @@ class CadastraCavalo extends React.Component {
             id_proprietarios: this.state.id_proprietarios
         };
 
-        axios.post('http://localhost:4000/cavalos', novoCavalo)
+        axios.post('http://localhost:31661/cavalos', novoCavalo)
         .then(response => {
             console.log('Cavalo cadastrado com sucesso:', response.data);
             this.setState(this.defaultState);

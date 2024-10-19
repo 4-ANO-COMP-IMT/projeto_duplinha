@@ -14,7 +14,8 @@ class AppState extends State<App>{
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Minhas imagens'),
+          title: const Text('Cavalos'),
+          centerTitle: true,
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -24,7 +25,8 @@ class AppState extends State<App>{
           backgroundColor: Color.fromRGBO(44, 62, 80, 100),
           shape: CircleBorder(),
           child: const Icon(Icons.dehaze_rounded),),
-          body: Text ('$numeroImagens'), //Parâmetro entregue ao construtor Scaffold
+          body: Text ('$numeroImagens'),
+          floatingActionButtonLocation: FloatingActionButtonLocation.startFloat, //Parâmetro entregue ao construtor Scaffold
       ),
     );
   }

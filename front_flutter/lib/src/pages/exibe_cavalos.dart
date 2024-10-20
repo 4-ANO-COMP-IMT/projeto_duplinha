@@ -1,45 +1,65 @@
 import 'package:flutter/material.dart';
 import '../components/cartao.dart';
 import '../components/cavalo_widget.dart';
+import '../models/cavalo.dart';
+import '../models/cavalo_raw.dart';
+import '../services/cavalo_service.dart';
 
-class ExibeCavalos extends StatelessWidget {
-  // Exemplo de lista de cavalos para testar
-  final List<Map<String, String>> listaCavalos = [
-    {
-      'nome': 'Relâmpago',
-      'baia': 'A1',
-      'pelagem': 'Castanho'
-    },
-    {
-      'nome': 'Trovão',
-      'baia': 'B2',
-      'pelagem': 'Branco'
-    },
-  ];
+class ExibeCavalos extends StatefulWidget {
+  @override
+  _ExibeCavalosState createState() => _ExibeCavalosState();
+}
+
+class _ExibeCavalosState extends State<ExibeCavalos> {
+  List<Cavalo>? cavalos;
+  bool carregando = true;
+  String? erro;
 
   @override
+  void initState() {
+    super.initState();
+    fetchCavalos();
+  }
+
+  Future<void> fetchCavalos() async {
+    try {
+      CavaloService service = CavaloService();
+      List<CavaloRaw> dadosCavalos = await service.fetchCavalos();
+      cavalos = dadosCavalos.map((cavaloRaw) => Cavalo(cavaloRaw)).toList();
+    } catch (e) {
+      erro = e.toString();
+    } finally {
+      setState(() {
+        carregando = false;
+      });
+    }
+  }
+
+   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Cavalos"),
-      ),
-      body: ListView.builder(
-        itemCount: listaCavalos.length,
-        itemBuilder: (context, index) {
-          final cavalo = listaCavalos[index];
-          return Cartao(
-            child: CavaloWidget(
-              nome: cavalo['nome']!,
-              baia: cavalo['baia']!,
-              pelagem: cavalo['pelagem']!,
-            ),
-            onTap: () {
-              // Lógica para ver detalhes do cavalo
-              print('Cavalo selecionado: ${cavalo['nome']}');
-            },
-          );
-        },
-      ),
+    if (carregando) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    if (erro != null) {
+      return Center(child: Text(erro!));
+    }
+
+    return ListView.builder(
+      itemCount: cavalos?.length,
+      itemBuilder: (context, index) {
+        final cavalo = cavalos![index];
+        return ListTile(
+          title: Text(cavalo.nome),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(cavalo.pelagem),
+              Text(cavalo.baia),
+            ],
+          ),
+        );
+      },
     );
   }
 }

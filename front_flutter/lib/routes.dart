@@ -9,6 +9,8 @@ class AppRoutes {
   static const String exibeProprietarios = '/proprietarios';
   static const String cadastraCavalo = '/cadastra-cavalo';
   static const String cadastraProprietario = '/cadastra-proprietario';
+  static const String exibeCavalo = '/cavalo:idCavalo';
+  static const String exibeProprietario = '/proprietario:idProprietario';
 
   static Map<String, WidgetBuilder> getRoutes() {
     return {
@@ -16,6 +18,8 @@ class AppRoutes {
       //exibeProprietarios: (context) => ExibeProprietarios(),
       //cadastraCavalo: (context) => CadastraCavalo(),
       //cadastraProprietario: (context) => CadastraProprietario(),
+      //exibeCavalo: (context) => ExibeCavalo(idCavalo),
+      //exibeProprietario: (context) => ExibeProprietario(idProprietario),
     };
   }
 }

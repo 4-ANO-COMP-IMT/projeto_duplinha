@@ -1,0 +1,60 @@
+class Cavalo_raw {
+  final int id;
+  final String nome;
+  final String raca;
+  final String dataNascimento;
+  final String baia;
+  final String pelagem;
+  final String sexo;
+  final String castrado;
+  final String registro;
+  final String chip;
+  final List<String> proprietarios;
+
+  Cavalo_raw({
+    required this.id, 
+    required this.nome, 
+    required this.baia, 
+    required this.pelagem,
+    required this.dataNascimento,
+    required this.raca,
+    required this.sexo,
+    required this.castrado,
+    required this.registro,
+    required this.chip,
+    required this.proprietarios,
+    });
+
+
+   // Cálculo da idade
+  int calcularIdade() {
+    final hoje = DateTime.now();
+    final nascimento = DateTime.parse(dataNascimento);
+    int idade = hoje.year - nascimento.year;
+    if (hoje.month < nascimento.month || (hoje.month == nascimento.month && hoje.day < nascimento.day)) {
+      idade--;
+    }
+    return idade;
+  }
+
+  // Formata o sexo
+  String escreveSexo() {
+    return sexo == "F" ? "Fêmea" : "Macho";
+  }
+
+  // Formata o registro
+  String escreveRegistro() {
+    if (registro == "Provisório") {
+      return "$id/P";
+    } else if (registro == "Definitivo") {
+      return "$id/D";
+    } else {
+      return "Sem registro";
+    }
+  }
+
+  // Formata a baia
+  String escreveBaia() {
+    return baia.isNotEmpty ? baia : "Pasto";
+  }
+}

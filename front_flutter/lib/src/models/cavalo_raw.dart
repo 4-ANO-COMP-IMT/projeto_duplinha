@@ -1,5 +1,5 @@
 class CavaloRaw {
-  final int id;
+  final String id;
   final String nome;
   final String raca;
   final String dataNascimento;

@@ -45,22 +45,36 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
       return Center(child: Text(erro!));
     }
 
-    return ListView.builder(
-      itemCount: cavalos?.length,
-      itemBuilder: (context, index) {
-        final cavalo = cavalos![index];
-
-        return Cartao(
-          onTap: () {
-            // Aqui você pode adicionar a navegação para a tela de detalhes, se desejar
-          },
-          child: CavaloWidget(
-            nome: cavalo.nome,
-            baia: cavalo.baia,
-            pelagem: cavalo.pelagem,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cavalos cadastrados'),
+        centerTitle: true,
+        actions: const <Widget>[
+          FilledButton.tonal(
+            onPressed: null, //() {
+              //Navigator.pushNamed(context, '/cadastra-cavalo');
+            //},
+            child: Text('Cadastrar cavalo'),
           ),
-        );
-      },
+        ],
+      ),
+      body: ListView.builder(
+        itemCount: cavalos?.length,
+        itemBuilder: (context, index) {
+          final cavalo = cavalos![index];
+
+          return Cartao(
+            onTap: () {
+              //Navigator.pushNamed(context, '/cavalo:idCavalo');
+            },
+            child: CavaloWidget(
+              nome: cavalo.nome,
+              baia: cavalo.baia,
+              pelagem: cavalo.pelagem,
+            ),
+          );
+        },
+      ),
     );
   }
 }

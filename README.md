@@ -1,51 +1,17 @@
-# Bem-vindo a seu Projeto
+# Projeto Sistema Gerenciador de Haras
 
-## Clonando repositório
+## Grupo
 
-Para começar seu projeto, primeiro abra a pasta que deseja utilizar, copie o URL do seu projeto, entre no terminal e digite:
+Izabel Sampaio Goes Pedreira Lapa - RA: 21.00098-0
 
-```bash
-git clone https://github.com/4-ANO-COMP-IMT/[$TRABALHO]_[$GRUPO].git
-```
+Júlia Galhardi Cerqueira - RA: 21.01997-0
 
-## Iniciando o projeto
+## Descrição
 
-Após criar entrar no repostório, crie o arquivo <strong> .gitignore </strong> na pasta raiz do projeto. Adicione as informações baseadas nesse [link](https://github.com/github/gitignore).
+O projeto aqui contido tem como objetivo ser um sistema de auxílio para o gerenciamento de haras, permitindo o armazenamento de informações importantes referentes ao negócio e aos envolvidos em seu dia a dia.
 
-## Branches
-Todas as alterações devem ser realizadas em branches criadas pelos alunos e mescladas com a <strong>dev</strong> após a aprovação do grupo.<br>
-Para a entrega final, o professor realizará a review e mesclagem com a <strong>prod</strong>. Esta review conterá comentários sobre o projeto e possíveis melhorias.
-<br>
-<br>
-<strong>ATENÇÃO</strong>:
- - Não faça nenhuma alteração na branch <strong>prod</strong>.
- - Jamais faça push diretamente na <strong>dev</strong> ou <strong>prod</strong>.
- -  Não aceite o pull request de sua branch para a <strong>dev</strong> sem a aprovação do grupo.
+Inicialmente, pode ser feito o cadastro de cavalos e proprietários.
 
-## Pull Request
-O pull request deve ser feito da branch do aluno para a <strong>dev</strong>.<br>
+## Observação - Testes
 
-
-## Commits 
-Para os commits, siga os <strong>[conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)</strong> para facilitar a leitura do histórico do projeto.
-
-Boas práticas:
-- Commits pequenos e frequentes.
-- Mensagens claras e objetivas.
-
-Base:
-
-
-```
-<tipo>(<escopo>): <resumo curto>
-  │       │             │
-  │       │             └─⫸ Resumo no presente. Não capitalizado. Sem ponto final no final.
-  │       │
-  │       └─⫸ Escopo do commit: geralmente o nome do módulo afetado
-  │
-  └─⫸ Tipo do commit: build|ci|docs|feat|fix|perf|refactor|test
-```
-
-## Conclusão
-
-Siga as instruções do professor e boa sorte! 😎
+Para facilitar o teste do projeto, existe um arquivo de texto (testes.txt) dentro da pasta "Back-end" o qual contém JSONs prontos para realização das requisições POST implementadas.

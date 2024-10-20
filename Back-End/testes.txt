@@ -1,0 +1,79 @@
+JSONs prontos para a realização rápida de testes
+
+----------------------------------------------CAVALOS----------------------------------------------------
+{
+  "nome": "Pingo",
+  "raca": "SRD",
+  "dt_nasc": "12-04-2012",
+  "pelagem": "Pampa de Tordilho",
+  "castrado": "true",
+  "sexo": "M",
+  "num_reg": "",
+  "num_chip": "123-456",
+  "tipo_reg": "",
+  "id_proprietarios": [],
+  "id_vet": "",
+  "baia": "7A",
+  "id_ficha": "",
+  "id_manejo": "",
+  "id_treino": "",
+  "mensalidade": "1950"
+}
+
+{
+  "nome": "Encanto ESR",
+  "raca": "Mangalarga Paulista",
+  "dt_nasc": "08-05-2022",
+  "pelagem": "Alazã Amarilha",
+  "castrado": "false",
+  "sexo": "M",
+  "num_reg": "230290/P",
+  "num_chip": "963003001470607",
+  "tipo_reg": "Provisório",
+  "id_proprietarios": [],
+  "id_vet": "",
+  "baia": "8A",
+  "id_ficha": "",
+  "id_manejo": "",
+  "id_treino": "",
+  "mensalidade": "1100"
+}
+
+----------------------------------------------PROPRIETÁRIOS----------------------------------------------------
+{
+  "nome": "Júlia",
+  "sobrenome": "Galhardi",
+  "cpf": "12345678901",
+  "genero": "Mulher cis",
+  "dt_nasc": "09-08-2001",
+  "telefone": "11912345678",
+  "endereco": {
+    "logradouro": "Rua das Petúnias, 14",
+    "complemento": "Apt 35",
+    "cidade": "São Caetano do Sul",
+    "estado": "SP"
+    },
+  "email": "julia.g@email.com",
+  "nomeContatoEmergencia": "Izabel Goes",
+  "telefoneContatoEmergencia": "11912346789",
+  "id_cavalos": [""]
+}
+
+{
+  "nome": "Izabel",
+  "sobrenome": "Goes",
+  "cpf": "12345678901",
+  "genero": "NB",
+  "dt_nasc": "05-04-2001",
+  "telefone": "11912345678",
+  "endereco": {
+    "logradouro": "Rua das Rosas, 15",
+    "complemento": "Apt 43",
+    "cidade": "São Caetano do Sul",
+    "estado": "SP"
+    },
+  "email": "izabel.g@email.com",
+  "nomeContatoEmergencia": "Júlia Galhardi",
+  "telefoneContatoEmergencia": "11912346789",
+  "id_cavalos": [""]
+}

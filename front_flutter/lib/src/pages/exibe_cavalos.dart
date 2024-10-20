@@ -35,7 +35,7 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
     }
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     if (carregando) {
       return const Center(child: CircularProgressIndicator());
@@ -49,14 +49,15 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
       itemCount: cavalos?.length,
       itemBuilder: (context, index) {
         final cavalo = cavalos![index];
-        return ListTile(
-          title: Text(cavalo.nome),
-          subtitle: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(cavalo.pelagem),
-              Text(cavalo.baia),
-            ],
+
+        return Cartao(
+          onTap: () {
+            // Aqui você pode adicionar a navegação para a tela de detalhes, se desejar
+          },
+          child: CavaloWidget(
+            nome: cavalo.nome,
+            baia: cavalo.baia,
+            pelagem: cavalo.pelagem,
           ),
         );
       },

@@ -5,6 +5,7 @@ import 'src/pages/cadastra_cavalo.dart';
 import 'src/pages/cadastra_proprietario.dart'; 
 import 'src/components/cartao.dart';
 import 'routes.dart';
+import 'src/themes/main_theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,6 +24,7 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Cavalos',
+      theme: MainTheme.theme,
       home: ExibeCavalos(),
       routes: AppRoutes.getRoutes(),
     );

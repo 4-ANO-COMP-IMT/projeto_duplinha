@@ -7,8 +7,8 @@ class Cavalo_raw {
   final String pelagem;
   final String sexo;
   final String castrado;
-  final String num_reg;
-  final String tipo_reg;
+  final String numReg;
+  final String tipoReg;
   final String chip;
   final List<String> proprietarios;
 
@@ -21,8 +21,8 @@ class Cavalo_raw {
     required this.raca,
     required this.sexo,
     required this.castrado,
-    required this.num_reg,
-    required this.tipo_reg,
+    required this.numReg,
+    required this.tipoReg,
     required this.chip,
     required this.proprietarios,
     });

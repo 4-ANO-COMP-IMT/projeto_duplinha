@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+# Nome do Deployment
+  name: haras-front-deploy
+spec:
+  # Número de cópias
+  replicas: 1
+  # Especificar o rótulo
+  selector:
+    matchLabels:
+      # Deployment vai selecionar todo Pod com esse rótulo
+      app: haras-front
+  # Modelo que vai ser usado para construir os Pods
+  template:
+    metadata:
+      labels:
+        # Pods terão esse rótulo, sendo selecionados por esse deployment
+        app: haras-front
+      
+    spec:
+      containers:
+      - name: haras-front
+        image: iz120/haras-front
+        ports:
+        - containerPort: 3000

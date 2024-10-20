@@ -46,10 +46,10 @@ class Cavalo_raw {
 
   // Formata o registro
   String escreveRegistro() {
-    if (registro == "Provisório") {
-      return "$id/P";
-    } else if (registro == "Definitivo") {
-      return "$id/D";
+    if (tipoReg == "Provisório") {
+      return "$numReg/P";
+    } else if (tipoReg == "Definitivo") {
+      return "$numReg/D";
     } else {
       return "Sem registro";
     }

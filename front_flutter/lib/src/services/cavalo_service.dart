@@ -19,7 +19,10 @@ class CavaloService {
         sexo: item['infos']['sexo'],
         num_reg: item['infos']['num_reg'],
         tipo_reg: item['infos']['tipo_reg'],
-        chip: item['infos']['num_chip']
+        chip: item['infos']['num_chip'],
+        raca: item['infos']['raca'],
+        castrado: item['infos']['castrado'],
+        proprietarios: item['infos']['id_proprietarios'],
       )).toList();
     } else {
       throw Exception('Falha ao carregar dados dos cavalos');

@@ -1,4 +1,4 @@
-class Cavalo_raw {
+class CavaloRaw {
   final int id;
   final String nome;
   final String raca;
@@ -12,7 +12,7 @@ class Cavalo_raw {
   final String chip;
   final List<String> proprietarios;
 
-  Cavalo_raw({
+  CavaloRaw({
     required this.id, 
     required this.nome, 
     required this.baia, 

@@ -5,12 +5,12 @@ import '../models/cavalo_raw.dart';
 class CavaloService {
   final String apiUrl = 'http://localhost:31661/cavalos';
 
-  Future<List<Cavalo_raw>> fetchCavalos() async {
+  Future<List<CavaloRaw>> fetchCavalos() async {
     final response = await http.get(Uri.parse(apiUrl));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
-      return data.map((item) => Cavalo_raw(
+      return data.map((item) => CavaloRaw(
         id: item['idCavalo'],
         nome: item['infos']['nome'],
         baia: item['infos']['baia'],

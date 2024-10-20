@@ -22,7 +22,7 @@ class CavaloService {
         chip: item['infos']['num_chip'],
         raca: item['infos']['raca'],
         castrado: item['infos']['castrado'],
-        proprietarios: item['infos']['id_proprietarios'],
+        proprietarios: List<String>.from(item['infos']['id_proprietarios'] ?? []),
       )).toList();
     } else {
       throw Exception('Falha ao carregar dados dos cavalos');

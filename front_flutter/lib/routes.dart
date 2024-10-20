@@ -5,7 +5,7 @@ import 'src/pages/cadastra_cavalo.dart';
 import 'src/pages/cadastra_proprietario.dart';
 
 class AppRoutes {
-  static const String exibeCavalos = '/';
+  static const String exibeCavalos = '/cavalos';
   static const String exibeProprietarios = '/proprietarios';
   static const String cadastraCavalo = '/cadastra-cavalo';
   static const String cadastraProprietario = '/cadastra-proprietario';

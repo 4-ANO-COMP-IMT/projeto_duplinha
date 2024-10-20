@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/cavalo_raw.dart';
 
 class CavaloService {
-  final String apiUrl = 'http://cavalos-clusterip-service:4000/cavalos';
+  final String apiUrl = 'http://localhost:31661/cavalos';
 
   Future<List<Cavalo_raw>> fetchCavalos() async {
     final response = await http.get(Uri.parse(apiUrl));

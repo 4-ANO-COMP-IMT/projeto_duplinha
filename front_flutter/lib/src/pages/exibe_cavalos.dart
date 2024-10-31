@@ -4,6 +4,7 @@ import '../components/cavalo_widget.dart';
 import '../models/cavalo.dart';
 import '../models/cavalo_raw.dart';
 import '../services/cavalo_service.dart';
+import '../../routes.dart';
 
 class ExibeCavalos extends StatefulWidget {
   @override
@@ -49,11 +50,11 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
       appBar: AppBar(
         title: const Text('Cavalos cadastrados'),
         centerTitle: true,
-        actions: const <Widget>[
+        actions: <Widget>[
           FilledButton.tonal(
-            onPressed: null, //() {
-              //Navigator.pushNamed(context, '/cadastra-cavalo');
-            //},
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.cadastraCavalo);
+            },
             child: Text('Cadastrar cavalo'),
           ),
         ],

@@ -7,8 +7,13 @@ class CadastraCavalo extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = Provider.of(context);
     return Container(
-    //20 pixels de margem esquerda, direita, em cima e embaixo
-    margin: EdgeInsets.all(20.0),
+    margin: EdgeInsets.only(
+      left: 200,
+      right: 200,
+      top: 20,
+      bottom: 20,
+    ),
+    
     child: Column (
       children: [
         emailField(bloc),

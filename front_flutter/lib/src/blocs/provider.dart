@@ -16,4 +16,9 @@ class Provider extends InheritedWidget {
     //pois a classe é genérica (informamos tipo Provider)
     return context.dependOnInheritedWidgetOfExactType<Provider>()!.bloc;
   }
+
+  static void dispose(BuildContext context) {
+    final provider = context.dependOnInheritedWidgetOfExactType<Provider>();
+    provider?.bloc.dispose();
+  }
 }

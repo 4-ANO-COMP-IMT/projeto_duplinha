@@ -3,17 +3,16 @@ import 'validators.dart';
 import 'package:rxdart/rxdart.dart';
 
 class Bloc with Validators {
-  //StreamController vem do pacote dart:async
-  final _nomeCavaloController = StreamController <String> ();
-  final _racaCavaloController = StreamController <String> ();
-  final _dtNascCavaloController = StreamController <String> ();
-  final _pelagemCavaloController = StreamController <String> ();
-  final _castradoCavaloController = StreamController <String> ();
-  final _sexoCavaloController = StreamController <String> ();
-  final _tipoRegistroCavaloController = StreamController <String> ();
-  final _numeroRegistroCavaloController = StreamController <String> ();
-  final _chipCavaloController = StreamController <String> ();
-  final _baiaCavaloController = StreamController <String> ();
+  final _nomeCavaloController = BehaviorSubject <String> ();
+  final _racaCavaloController = BehaviorSubject <String> ();
+  final _dtNascCavaloController = BehaviorSubject <String> ();
+  final _pelagemCavaloController = BehaviorSubject <String> ();
+  final _castradoCavaloController = BehaviorSubject <String> ();
+  final _sexoCavaloController = BehaviorSubject <String> ();
+  final _tipoRegistroCavaloController = BehaviorSubject <String> ();
+  final _numeroRegistroCavaloController = BehaviorSubject <String> ();
+  final _chipCavaloController = BehaviorSubject <String> ();
+  final _baiaCavaloController = BehaviorSubject <String> ();
 
   Stream<String> get nomeCavalo => _nomeCavaloController.stream.transform(validateTexto);
   Stream<String> get racaCavalo => _racaCavaloController.stream.transform(validateTexto);

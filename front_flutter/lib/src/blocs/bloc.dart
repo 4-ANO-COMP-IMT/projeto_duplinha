@@ -13,6 +13,14 @@ class Bloc with Validators {
   final _numeroRegistroCavaloController = BehaviorSubject <String> ();
   final _chipCavaloController = BehaviorSubject <String> ();
   final _baiaCavaloController = BehaviorSubject <String> ();
+  final _initController = BehaviorSubject <String> ();
+
+  Bloc() {
+    _tipoRegistroCavaloController.add("");
+    _numeroRegistroCavaloController.add("");
+    _chipCavaloController.add("");
+    _initController.add("");
+  }
 
   Stream<String> get nomeCavalo => _nomeCavaloController.stream.transform(validateTexto);
   Stream<String> get racaCavalo => _racaCavaloController.stream.transform(validateTexto);
@@ -24,19 +32,24 @@ class Bloc with Validators {
   Stream<String> get numeroRegistroCavalo => _numeroRegistroCavaloController.stream.transform(validateNumeroRegistro);
   Stream<String> get chipCavalo => _chipCavaloController.stream.transform(validateChip);
   Stream<String> get baiaCavalo => _baiaCavaloController.stream.transform(validateOpcional);
-  Stream<bool> get mandatoryFieldsAreOkay => CombineLatestStream.combine6(
+  Stream<String> get init => _initController.stream.transform(validateInit);
+  Stream<bool> get mandatoryFieldsAreOkay => CombineLatestStream.combine7(
       nomeCavalo, 
       racaCavalo, 
       dtNascCavalo, 
       pelagemCavalo, 
       castradoCavalo, 
-      sexoCavalo, 
-      (n, r, d, p, c, s) => true);
+      sexoCavalo,
+      init,
+      (n, r, d, p, c, s,v) => true);
   Stream<bool> get registryFieldsAreOkay => CombineLatestStream.combine2(
     tipoRegistroCavalo,
     numeroRegistroCavalo,
     (tp, num) => validateRegistro(tp, num));
-    Stream<bool> get allFieldsAreOkay => CombineLatestStream.combine2(mandatoryFieldsAreOkay, registryFieldsAreOkay, (m, r) => validateForm(m, r));
+  Stream<bool> get allFieldsAreOkay => CombineLatestStream.combine2(
+    mandatoryFieldsAreOkay,
+    registryFieldsAreOkay,
+    (m, r) => validateForm(m, r));
 
   Function(String) get changeNomeCavalo => _nomeCavaloController.sink.add;
   Function(String) get changeRacaCavalo => _racaCavaloController.sink.add;

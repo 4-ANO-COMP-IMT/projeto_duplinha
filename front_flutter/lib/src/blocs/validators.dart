@@ -60,15 +60,31 @@ mixin Validators {
 
   bool validateRegistro(tp, num) {
     if(tp.length > 0 && num.length > 0){
+        print("T1 tp: " + tp);
+        print("T1 num: " + num);
         return true;
-      } else if((tp.valueOrNull.length == 0 || tp.valueOrNull == null) && (num.valueOrNull.length == 0 || num.valueOrNull.length == null)) {
+      } else if((tp.length == 0 || tp == null) && (num.length == 0 || num == null)) {
+        print("T2 tp: " + tp);
+        print("T2 num: " + num);
         return true;
       } else {
+        print("F1 tp: " + tp);
+        print("F1 num: " + num);
         return false;
       }
   }
 
-  bool validateForm(mandatory, registry) {
-    return mandatory && registry;
+  bool validateForm(m, r) {
+    if(m == true && r == true){
+      return true;
+    } else {
+      return false;
+    }
   }
+
+  final validateInit = StreamTransformer<String, String>.fromHandlers(
+    handleData: (init, sink) {
+      sink.add(init);
+    }
+  );
 }

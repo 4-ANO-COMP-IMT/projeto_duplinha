@@ -16,7 +16,7 @@ class ExibeProprietario extends Component {
   componentDidMount() {
     const { idProprietario } = this.props.params;
 
-    axios.get('http://proprietarios-clusterip-service:5000/proprietarios')
+    axios.get('http://localhost:31498/proprietarios')
       .then(response => {
         const proprietario = response.data;
         const proprietarioSelecionado = proprietario.find(proprietario => proprietario.idProprietario === idProprietario);

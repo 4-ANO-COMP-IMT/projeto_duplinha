@@ -33,7 +33,7 @@ class Bloc with Validators {
   Stream<String> get chipCavalo => _chipCavaloController.stream.transform(validateChip);
   Stream<String> get baiaCavalo => _baiaCavaloController.stream.transform(validateOpcional);
   Stream<String> get init => _initController.stream.transform(validateInit);
-  Stream<bool> get mandatoryFieldsAreOkay => CombineLatestStream.combine7(
+  Stream<bool> get fieldsAreOkay => CombineLatestStream.combine8(
       nomeCavalo, 
       racaCavalo, 
       dtNascCavalo, 
@@ -41,13 +41,14 @@ class Bloc with Validators {
       castradoCavalo, 
       sexoCavalo,
       init,
-      (n, r, d, p, c, s,v) => true);
+      chipCavalo,
+      (n, r, d, p, c, s, v, h) => true);
   Stream<bool> get registryFieldsAreOkay => CombineLatestStream.combine2(
     tipoRegistroCavalo,
     numeroRegistroCavalo,
     (tp, num) => validateRegistro(tp, num));
   Stream<bool> get allFieldsAreOkay => CombineLatestStream.combine2(
-    mandatoryFieldsAreOkay,
+    fieldsAreOkay,
     registryFieldsAreOkay,
     (m, r) => validateForm(m, r));
 

@@ -3,13 +3,13 @@ class CavaloRaw {
   final String nome;
   final String raca;
   final String dataNascimento;
-  final String baia;
+  final String? baia;
   final String pelagem;
   final String sexo;
   final String castrado;
-  final String numReg;
-  final String tipoReg;
-  final String chip;
+  final String? numReg;
+  final String? tipoReg;
+  final String? chip;
   final List<String> proprietarios;
 
   CavaloRaw({
@@ -57,6 +57,6 @@ class CavaloRaw {
 
   // Formata a baia
   String escreveBaia() {
-    return baia.isNotEmpty ? baia : "Pasto";
+    return baia == null ? "Pasto" : baia!;
   }
 }

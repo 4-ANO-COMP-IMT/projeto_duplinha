@@ -16,7 +16,7 @@ class CadastraCavalo extends StatelessWidget {
     
     child: Column (
       children: [
-        emailField(bloc),
+        nomeCavaloField(bloc),
         passwordField(bloc),
         Container(
           margin: EdgeInsets.only(top: 12.0),
@@ -33,23 +33,16 @@ class CadastraCavalo extends StatelessWidget {
     );
   }
 
-  Widget emailField(Bloc bloc) {
+  Widget nomeCavaloField(Bloc bloc) {
     return StreamBuilder(
-      //Stream que, quando atualizado, produz um snapshot
-      //Observe como usamos o Stream definido no bloco
-      stream: bloc.email,
-      //Função que, quando chamada, causa a atualização do Widget
-      //Empacotado pelo Stream Builder
+      stream: bloc.nomeCavalo,
       builder: ((context, AsyncSnapshot<String> snapshot) {
         return TextField(
-          onChanged: bloc.changeEmail,
-          keyboardType: TextInputType.emailAddress,
+          onChanged: bloc.changeNomeCavalo,
+          keyboardType: TextInputType.text,
           decoration: InputDecoration(
-            //Dica que aparece quando o usuário clica
-            hintText: "seu@email.com",
-            //Rótulo flutuante
-            labelText: "Endereço de e-mail",
-            //O erro não necessariamente é String, por isso o seu tipo é Object? e usamos o toString
+            hintText: "Nome do cavalo",
+            labelText: "Nome*",
             errorText: snapshot.hasError ? snapshot.error.toString() : null,
           ),
         );

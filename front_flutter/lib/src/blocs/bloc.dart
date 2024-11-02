@@ -4,18 +4,18 @@ import 'package:rxdart/rxdart.dart';
 
 class Bloc with Validators {
   //StreamController vem do pacote dart:async
-  final _emailController = StreamController <String> ();
+  final _nomeCavaloController = StreamController <String> ();
   final _passwordController = StreamController <String> ();
 
-  Stream<String> get email => _emailController.stream.transform(validateEmail);
+  Stream<String> get nomeCavalo => _nomeCavaloController.stream.transform(validateTexto);
   Stream<String> get password => _passwordController.stream.transform(validatePassword);
-  Stream<bool> get emailPasswordAreOkay => CombineLatestStream.combine2(email, password, (e, p) => true); 
+  Stream<bool> get emailPasswordAreOkay => CombineLatestStream.combine6(nomeCavalo, password, b, c, d, e, (e, p, b, c, d, f) => true); 
 
-  Function(String) get changeEmail => _emailController.sink.add;
+  Function(String) get changeNome => _nomeCavaloController.sink.add;
   Function(String) get changePassword => _passwordController.sink.add;
 
   void dispose() {
-    _emailController.close();
+    _nomeCavaloController.close();
     _passwordController.close();
   }
 }

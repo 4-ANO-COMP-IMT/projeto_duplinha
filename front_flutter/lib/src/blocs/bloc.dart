@@ -84,6 +84,8 @@ class Bloc with Validators {
     print(num_chip);
     print(tipo_reg);
     print(baia);
+
+    
   }
 
   void clean() {

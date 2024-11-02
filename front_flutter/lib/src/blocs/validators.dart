@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:email_validator/email_validator.dart';
+import 'package:intl/intl.dart';
 
 mixin Validators {
   final validateTexto = StreamTransformer<String, String>.fromHandlers(
@@ -18,6 +19,17 @@ mixin Validators {
         sink.add(email);
       } else {
         sink.addError("Senha deve ter, pelo menos, 4 caracteres");
+      }
+    }
+  );
+
+  final validateData = StreamTransformer<String, String>.fromHandlers(
+    handleData: (data, sink) {
+      try {
+        data = DateFormat.yMd('pt_BR').parseStrict(data).toString().split(' ')[0];
+        sink.add(data);
+      } catch (e) {
+        sink.addError("Esta data não é válida");
       }
     }
   );

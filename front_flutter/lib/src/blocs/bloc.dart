@@ -17,7 +17,7 @@ class Bloc with Validators {
 
   Stream<String> get nomeCavalo => _nomeCavaloController.stream.transform(validateTexto);
   Stream<String> get racaCavalo => _racaCavaloController.stream.transform(validateTexto);
-  Stream<String> get dtNascCavalo => _dtNascCavaloController.stream.transform(validateTexto);
+  Stream<String> get dtNascCavalo => _dtNascCavaloController.stream.transform(validateData);
   Stream<String> get pelagemCavalo => _pelagemCavaloController.stream.transform(validateTexto);
   Stream<String> get castradoCavalo => _castradoCavaloController.stream.transform(validateTexto);
   Stream<String> get sexoCavalo => _sexoCavaloController.stream.transform(validateTexto);

@@ -6,15 +6,19 @@ class CadastraCavalo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = Provider.of(context);
-    return Container(
-    margin: EdgeInsets.only(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cadastro Cavalo'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.only(
       left: 200,
       right: 200,
       top: 20,
       bottom: 20,
-    ),
-    
-    child: Column (
+      ),
+      child: Column (
       children: [
         nomeCavaloField(bloc),
         SizedBox(height: 20,),
@@ -31,8 +35,12 @@ class CadastraCavalo extends StatelessWidget {
         tipoRegistroCavaloField(bloc),
         SizedBox(height: 20,),
         numeroRegistroCavaloField(bloc),
+        SizedBox(height: 20,),
+        chipCavaloField(bloc),
+        SizedBox(height: 20,),
+        baiaCavaloField(bloc),
         Container(
-          margin: EdgeInsets.only(top: 12.0),
+          margin: EdgeInsets.only(top: 25.0),
           child: Row(
             children: [
               Expanded(
@@ -40,11 +48,12 @@ class CadastraCavalo extends StatelessWidget {
                 ),
               ],
             ),
-        ),
-      ],
+          ),
+        ],
+      ),
     ),
-    );
-  }
+  );
+}
 
   Widget nomeCavaloField(Bloc bloc) {
     return StreamBuilder(
@@ -254,7 +263,7 @@ class CadastraCavalo extends StatelessWidget {
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
             hintText: "123456",
-            labelText: "Número Registro*",
+            labelText: "Número Registro",
             errorText: snapshot.hasError ? snapshot.error.toString() : null,
           ),
         );
@@ -272,7 +281,6 @@ class CadastraCavalo extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "123456789012345",
             labelText: "Número do Chip",
-            errorText: snapshot.hasError ? snapshot.error.toString() : null,
           ),
         );
       }),
@@ -289,7 +297,6 @@ class CadastraCavalo extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "Ex.: 7A",
             labelText: "Baia",
-            errorText: snapshot.hasError ? snapshot.error.toString() : null,
           ),
         );
       }),

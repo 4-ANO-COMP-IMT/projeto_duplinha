@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../blocs/bloc.dart';
 import '../blocs/provider.dart';
+import '../../routes.dart';
 
 class CadastraCavalo extends StatelessWidget {
   @override
@@ -10,6 +11,12 @@ class CadastraCavalo extends StatelessWidget {
       appBar: AppBar(
         title: Text('Cadastro Cavalo'),
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_rounded),
+          onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.exibeCavalos);
+            },
+          ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(

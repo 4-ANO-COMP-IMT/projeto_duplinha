@@ -201,7 +201,7 @@ class CadastraCavalo extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Tipo de Registro'),
+            Text('Tipo de Registro*'),
             SizedBox(height: 5,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -224,6 +224,16 @@ class CadastraCavalo extends StatelessWidget {
                       groupValue: snapshot.data,
                     ),
                     Text('Definitivo'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Radio<String>(
+                      onChanged: (value) {bloc.changeTipoRegistroCavalo(value!);},
+                      value: "",
+                      groupValue: snapshot.data,
+                    ),
+                    Text('Sem registro'),
                   ],
                 ),
               ],

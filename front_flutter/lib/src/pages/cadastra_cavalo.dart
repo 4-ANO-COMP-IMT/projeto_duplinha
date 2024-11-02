@@ -262,6 +262,40 @@ class CadastraCavalo extends StatelessWidget {
     );
   }
 
+  Widget chipCavaloField(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.chipCavalo,
+      builder: ((context, AsyncSnapshot<String> snapshot) {
+        return TextField(
+          onChanged: bloc.changeChipCavalo,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            hintText: "123456789012345",
+            labelText: "Número do Chip",
+            errorText: snapshot.hasError ? snapshot.error.toString() : null,
+          ),
+        );
+      }),
+    );
+  }
+
+  Widget baiaCavaloField(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.baiaCavalo,
+      builder: ((context, AsyncSnapshot<String> snapshot) {
+        return TextField(
+          onChanged: bloc.changeBaiaCavalo,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            hintText: "Ex.: 7A",
+            labelText: "Baia",
+            errorText: snapshot.hasError ? snapshot.error.toString() : null,
+          ),
+        );
+      }),
+    );
+  }
+
   Widget submitButton(Bloc bloc) {
     return StreamBuilder(
       stream: bloc.mandatoryFieldsAreOkay,

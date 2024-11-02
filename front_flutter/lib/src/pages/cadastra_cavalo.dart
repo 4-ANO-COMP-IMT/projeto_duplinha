@@ -21,6 +21,7 @@ class CadastraCavalo extends StatelessWidget {
         dtNascCavaloField(bloc),
         pelagemCavaloField(bloc),
         castradoCavaloField(bloc),
+        sexoCavaloField(bloc),
         Container(
           margin: EdgeInsets.only(top: 12.0),
           child: Row(
@@ -123,6 +124,34 @@ class CadastraCavalo extends StatelessWidget {
               leading: Radio<String>(
                 onChanged: (String? value) {bloc.changeCastradoCavalo;},
                 value: "Não",
+                groupValue: snapshot.data,
+              ),
+            ),
+          ],
+        );
+      }),
+    );
+  }
+
+  Widget sexoCavaloField(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.sexoCavalo,
+      builder: ((context, AsyncSnapshot<String> snapshot) {
+        return Row(
+          children: <Widget>[
+            ListTile(
+              title: Text('Fêmea'),
+              leading: Radio<String>(
+                onChanged: (String? value) {bloc.changeSexoCavalo;},
+                value: "F",
+                groupValue: snapshot.data,
+              ),
+            ),
+            ListTile(
+              title: Text('Macho'),
+              leading: Radio<String>(
+                onChanged: (String? value) {bloc.changeSexoCavalo;},
+                value: "M",
                 groupValue: snapshot.data,
               ),
             ),

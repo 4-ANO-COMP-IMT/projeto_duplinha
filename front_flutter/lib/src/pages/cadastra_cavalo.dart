@@ -18,10 +18,9 @@ class CadastraCavalo extends StatelessWidget {
       children: [
         nomeCavaloField(bloc),
         racaCavaloField(bloc),
-        Container(
-          margin: EdgeInsets.only(top: 12, bottom: 12),
-          child: dtNascCavaloField(bloc),
-        ),
+        dtNascCavaloField(bloc),
+        pelagemCavaloField(bloc),
+        castradoCavaloField(bloc),
         Container(
           margin: EdgeInsets.only(top: 12.0),
           child: Row(
@@ -100,6 +99,34 @@ class CadastraCavalo extends StatelessWidget {
             labelText: "Pelagem*",
             errorText: snapshot.hasError ? snapshot.error.toString() : null,
           ),
+        );
+      }),
+    );
+  }
+
+  Widget castradoCavaloField(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.castradoCavalo,
+      builder: ((context, AsyncSnapshot<String> snapshot) {
+        return Row(
+          children: <Widget>[
+            ListTile(
+              title: Text('Sim'),
+              leading: Radio<String>(
+                onChanged: (String? value) {bloc.changeCastradoCavalo;},
+                value: "Sim",
+                groupValue: snapshot.data,
+              ),
+            ),
+            ListTile(
+              title: Text('Não'),
+              leading: Radio<String>(
+                onChanged: (String? value) {bloc.changeCastradoCavalo;},
+                value: "Não",
+                groupValue: snapshot.data,
+              ),
+            ),
+          ],
         );
       }),
     );

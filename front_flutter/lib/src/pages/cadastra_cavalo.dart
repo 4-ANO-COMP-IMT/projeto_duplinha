@@ -14,8 +14,7 @@ class CadastraCavalo extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded),
           onPressed: () {
-            bloc.dispose();
-            Navigator.pop(context);
+            Navigator.pushNamed(context, AppRoutes.exibeCavalos);
             },
           ),
       ),
@@ -289,6 +288,7 @@ class CadastraCavalo extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "123456789012345",
             labelText: "Número do Chip",
+            errorText: snapshot.hasError ? snapshot.error.toString() : null,
           ),
         );
       }),

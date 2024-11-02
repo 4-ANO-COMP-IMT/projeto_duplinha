@@ -17,7 +17,11 @@ class CadastraCavalo extends StatelessWidget {
     child: Column (
       children: [
         nomeCavaloField(bloc),
-        passwordField(bloc),
+        racaCavaloField(bloc),
+        Container(
+          margin: EdgeInsets.only(top: 12, bottom: 12),
+          child: dtNascCavaloField(bloc),
+        ),
         Container(
           margin: EdgeInsets.only(top: 12.0),
           child: Row(
@@ -50,30 +54,47 @@ class CadastraCavalo extends StatelessWidget {
     );
   }
 
-  Widget passwordField(Bloc bloc) {
+  Widget racaCavaloField(Bloc bloc) {
     return StreamBuilder(
-      stream: bloc.password,
-      builder: (context, AsyncSnapshot<String> snapshot) {
+      stream: bloc.racaCavalo,
+      builder: ((context, AsyncSnapshot<String> snapshot) {
         return TextField(
-          onChanged: bloc.changePassword,
-          obscureText: true,
+          onChanged: bloc.changeRacaCavalo,
+          keyboardType: TextInputType.text,
           decoration: InputDecoration(
-            hintText: "Senha",
-            labelText: "Senha",
-            errorText: snapshot.hasError? snapshot.error.toString() : null,
+            hintText: "Ex.: Lusitano",
+            labelText: "Raça*",
+            errorText: snapshot.hasError ? snapshot.error.toString() : null,
           ),
         );
-      },
+      }),
+    );
+  }
+
+  Widget dtNascCavaloField(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.dtNascCavalo,
+      builder: ((context, AsyncSnapshot<String> snapshot) {
+        return TextField(
+          onChanged: bloc.changeDtNascCavalo,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            labelText: "Data de Nascimento*",
+            hintText: "DD/MM/AAAA",
+            errorText: snapshot.hasError ? snapshot.error.toString() : null,
+          ),
+        );
+      }),
     );
   }
 
   Widget submitButton(Bloc bloc) {
     return StreamBuilder(
-      stream: bloc.emailPasswordAreOkay,
+      stream: bloc.mandatoryFieldsAreOkay,
       builder: (context, AsyncSnapshot<bool> snapshot){
          return ElevatedButton(
           onPressed: snapshot.hasData ? (){} : null, //ainda não temos o que fazer, função vazia
-          child: Text('Login')
+          child: Text('Cadastrar')
         );
       },
     );

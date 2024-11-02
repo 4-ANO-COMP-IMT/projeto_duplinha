@@ -31,7 +31,12 @@ class Bloc with Validators {
       pelagemCavalo, 
       castradoCavalo, 
       sexoCavalo, 
-      (n, r, d, p, c, s) => true); 
+      (n, r, d, p, c, s) => true);
+  Stream<bool> get registryFieldsAreOkay => CombineLatestStream.combine2(
+    tipoRegistroCavalo,
+    numeroRegistroCavalo,
+    (tp, num) => validateRegistro(tp, num));
+    Stream<bool> get allFieldsAreOkay => CombineLatestStream.combine2(mandatoryFieldsAreOkay, registryFieldsAreOkay, (m, r) => validateForm(m, r));
 
   Function(String) get changeNomeCavalo => _nomeCavaloController.sink.add;
   Function(String) get changeRacaCavalo => _racaCavaloController.sink.add;
@@ -43,6 +48,29 @@ class Bloc with Validators {
   Function(String) get changeNumeroRegistroCavalo => _numeroRegistroCavaloController.sink.add;
   Function(String) get changeChipCavalo => _chipCavaloController.sink.add;
   Function(String) get changeBaiaCavalo => _baiaCavaloController.sink.add;
+
+  void submitCavaloForm() {
+    final nome = _nomeCavaloController.value;
+    final raca = _racaCavaloController.value;
+    final dt_nasc = _dtNascCavaloController.value;
+    final pelagem = _pelagemCavaloController.value;
+    final castrado = _castradoCavaloController.value;
+    final sexo = _sexoCavaloController.value;
+    final num_reg = _numeroRegistroCavaloController.valueOrNull;
+    final num_chip = _chipCavaloController.valueOrNull;
+    final tipo_reg = _tipoRegistroCavaloController.valueOrNull;
+    final baia = _baiaCavaloController.valueOrNull;
+    print(nome);
+    print(raca);
+    print(dt_nasc);
+    print(pelagem);
+    print(castrado);
+    print(sexo);
+    print(num_reg);
+    print(num_chip);
+    print(tipo_reg);
+    print(baia);
+  }
   
 
   void dispose() {

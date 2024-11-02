@@ -217,7 +217,7 @@ class CadastraCavalo extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Tipo de Registro*'),
+            Text('Tipo de Registro'),
             SizedBox(height: 5,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -316,7 +316,7 @@ class CadastraCavalo extends StatelessWidget {
       stream: bloc.mandatoryFieldsAreOkay,
       builder: (context, AsyncSnapshot<bool> snapshot){
          return ElevatedButton(
-          onPressed: snapshot.hasData ? (){} : null, //ainda não temos o que fazer, função vazia
+          onPressed: snapshot.hasData ? bloc.submitCavaloForm : null,
           child: Text('Cadastrar')
         );
       },

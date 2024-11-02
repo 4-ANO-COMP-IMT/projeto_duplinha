@@ -11,7 +11,7 @@ class Bloc with Validators {
   Stream<String> get password => _passwordController.stream.transform(validatePassword);
   Stream<bool> get emailPasswordAreOkay => CombineLatestStream.combine6(nomeCavalo, password, b, c, d, e, (e, p, b, c, d, f) => true); 
 
-  Function(String) get changeNome => _nomeCavaloController.sink.add;
+  Function(String) get changeNomeCavalo => _nomeCavaloController.sink.add;
   Function(String) get changePassword => _passwordController.sink.add;
 
   void dispose() {

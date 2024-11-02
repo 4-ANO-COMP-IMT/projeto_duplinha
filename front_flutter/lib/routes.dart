@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'src/pages/exibe_cavalos.dart';
-import 'src/pages/exibe_proprietarios.dart';
 import 'src/pages/cadastra_cavalo.dart';
-import 'src/pages/cadastra_proprietario.dart';
 
 class AppRoutes {
   static const String exibeCavalos = '/cavalos';

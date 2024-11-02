@@ -22,9 +22,9 @@ class Bloc with Validators {
   Stream<String> get castradoCavalo => _castradoCavaloController.stream.transform(validateTexto);
   Stream<String> get sexoCavalo => _sexoCavaloController.stream.transform(validateTexto);
   Stream<String> get tipoRegistroCavalo => _tipoRegistroCavaloController.stream.transform(validateOpcional);
-  Stream<String> get numeroRegistroCavalo => _numeroRegistroCavaloController.stream.transform(validateTexto);
-  Stream<String> get chipCavalo => _chipCavaloController.stream.transform(validateTexto);
-  Stream<String> get baiaCavalo => _baiaCavaloController.stream.transform(validateTexto);
+  Stream<String> get numeroRegistroCavalo => _numeroRegistroCavaloController.stream.transform(validateNumeroRegistro);
+  Stream<String> get chipCavalo => _chipCavaloController.stream.transform(validateChip);
+  Stream<String> get baiaCavalo => _baiaCavaloController.stream.transform(validateOpcional);
   Stream<bool> get mandatoryFieldsAreOkay => CombineLatestStream.combine6(
       nomeCavalo, 
       racaCavalo, 

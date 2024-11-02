@@ -4,9 +4,9 @@ import 'package:intl/intl.dart';
 
 mixin Validators {
   final validateTexto = StreamTransformer<String, String>.fromHandlers(
-    handleData: (nome, sink) {
-      if (nome.length > 0) {
-        sink.add(nome);
+    handleData: (texto, sink) {
+      if (texto.length > 0) {
+        sink.add(texto);
       } else {
         sink.addError("Este campo é obrigatório");
       }

@@ -17,12 +17,17 @@ class CadastraCavalo extends StatelessWidget {
     child: Column (
       children: [
         nomeCavaloField(bloc),
+        SizedBox(height: 20,),
         racaCavaloField(bloc),
+        SizedBox(height: 20,),
         dtNascCavaloField(bloc),
+        SizedBox(height: 20,),
         pelagemCavaloField(bloc),
+        SizedBox(height: 20,),
         castradoCavaloField(bloc),
-        sexoCavaloField(bloc),
-        tipoRegistroCavaloField(bloc),
+        SizedBox(height: 20,),
+        //sexoCavaloField(bloc),
+        //tipoRegistroCavaloField(bloc),
         Container(
           margin: EdgeInsets.only(top: 12.0),
           child: Row(
@@ -110,23 +115,34 @@ class CadastraCavalo extends StatelessWidget {
     return StreamBuilder(
       stream: bloc.castradoCavalo,
       builder: ((context, AsyncSnapshot<String> snapshot) {
-        return Row(
-          children: <Widget>[
-            ListTile(
-              title: Text('Sim'),
-              leading: Radio<String>(
-                onChanged: (String? value) {bloc.changeCastradoCavalo;},
-                value: "Sim",
-                groupValue: snapshot.data,
-              ),
-            ),
-            ListTile(
-              title: Text('Não'),
-              leading: Radio<String>(
-                onChanged: (String? value) {bloc.changeCastradoCavalo;},
-                value: "Não",
-                groupValue: snapshot.data,
-              ),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Castrado?*'),
+            SizedBox(height: 5,),
+            Row(
+              children: <Widget>[
+                Row(
+                  children: [
+                    Radio<String>(
+                      onChanged: (value) {bloc.changeCastradoCavalo(value!);},
+                      value: "Sim",
+                      groupValue: snapshot.data,
+                    ),
+                    Text('Sim'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Radio<String>(
+                      onChanged: (value) {bloc.changeCastradoCavalo(value!);},
+                      value: "Não",
+                      groupValue: snapshot.data,
+                    ),
+                    Text('Não'),
+                  ],
+                ),
+              ],
             ),
           ],
         );
@@ -166,25 +182,47 @@ class CadastraCavalo extends StatelessWidget {
     return StreamBuilder(
       stream: bloc.tipoRegistroCavalo,
       builder: ((context, AsyncSnapshot<String> snapshot) {
-        return Row(
-          children: <Widget>[
-            ListTile(
-              title: Text('Provisório'),
-              leading: Radio<String>(
-                onChanged: (String? value) {bloc.changeTipoRegistroCavalo;},
-                value: "Provisório",
-                groupValue: snapshot.data,
-              ),
-            ),
-            ListTile(
-              title: Text('Definitivo'),
-              leading: Radio<String>(
-                onChanged: (String? value) {bloc.changeTipoRegistroCavalo;},
-                value: "Definitivo",
-                groupValue: snapshot.data,
-              ),
+        return Column(
+          children: [
+            Text('Tipo de Registro:'),
+            Row(
+              children: <Widget>[
+                ListTile(
+                  title: Text('Provisório'),
+                  leading: Radio<String>(
+                    onChanged: (String? value) {bloc.changeTipoRegistroCavalo;},
+                    value: "Provisório",
+                    groupValue: snapshot.data,
+                  ),
+                ),
+                ListTile(
+                  title: Text('Definitivo'),
+                  leading: Radio<String>(
+                    onChanged: (String? value) {bloc.changeTipoRegistroCavalo;},
+                    value: "Definitivo",
+                    groupValue: snapshot.data,
+                  ),
+                ),
+              ],
             ),
           ],
+        );        
+      }),
+    );
+  }
+
+  Widget numeroRegistroCavaloField(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.numeroRegistroCavalo,
+      builder: ((context, AsyncSnapshot<String> snapshot) {
+        return TextField(
+          onChanged: bloc.changeNumeroRegistroCavalo,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            hintText: "123456",
+            labelText: "Número Registro*",
+            errorText: snapshot.hasError ? snapshot.error.toString() : null,
+          ),
         );
       }),
     );

@@ -85,6 +85,12 @@ class Bloc with Validators {
     print(tipo_reg);
     print(baia);
   }
+
+  void clean() {
+    _tipoRegistroCavaloController.add("");
+    _castradoCavaloController.add("");
+    _sexoCavaloController.add("");
+  }
   
 
   void dispose() {

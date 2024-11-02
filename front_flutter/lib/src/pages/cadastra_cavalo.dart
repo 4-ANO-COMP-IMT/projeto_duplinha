@@ -88,6 +88,23 @@ class CadastraCavalo extends StatelessWidget {
     );
   }
 
+  Widget pelagemCavaloField(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.pelagemCavalo,
+      builder: ((context, AsyncSnapshot<String> snapshot) {
+        return TextField(
+          onChanged: bloc.changePelagemCavalo,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            hintText: "Ex.: Tordilho",
+            labelText: "Pelagem*",
+            errorText: snapshot.hasError ? snapshot.error.toString() : null,
+          ),
+        );
+      }),
+    );
+  }
+
   Widget submitButton(Bloc bloc) {
     return StreamBuilder(
       stream: bloc.mandatoryFieldsAreOkay,

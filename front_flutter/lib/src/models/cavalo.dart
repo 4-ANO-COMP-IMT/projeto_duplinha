@@ -15,7 +15,7 @@ class Cavalo {
 
   String get castrado => cavalo.castrado;
 
-  String get chip => cavalo.chip ;
+  String get chip => cavalo.chip == null ? "" : cavalo.chip! ;
 
   List<String> get proprietarios => cavalo.proprietarios ;
 

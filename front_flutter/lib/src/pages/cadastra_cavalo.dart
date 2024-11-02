@@ -23,11 +23,14 @@ class CadastraCavalo extends StatelessWidget {
         dtNascCavaloField(bloc),
         SizedBox(height: 20,),
         pelagemCavaloField(bloc),
-        SizedBox(height: 20,),
+        SizedBox(height: 30,),
         castradoCavaloField(bloc),
         SizedBox(height: 20,),
-        //sexoCavaloField(bloc),
-        //tipoRegistroCavaloField(bloc),
+        sexoCavaloField(bloc),
+        SizedBox(height: 20,),
+        tipoRegistroCavaloField(bloc),
+        SizedBox(height: 20,),
+        numeroRegistroCavaloField(bloc),
         Container(
           margin: EdgeInsets.only(top: 12.0),
           child: Row(
@@ -121,6 +124,7 @@ class CadastraCavalo extends StatelessWidget {
             Text('Castrado?*'),
             SizedBox(height: 5,),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Row(
                   children: [
@@ -150,27 +154,39 @@ class CadastraCavalo extends StatelessWidget {
     );
   }
 
-  Widget sexoCavaloField(Bloc bloc) {
+   Widget sexoCavaloField(Bloc bloc) {
     return StreamBuilder(
       stream: bloc.sexoCavalo,
       builder: ((context, AsyncSnapshot<String> snapshot) {
-        return Row(
-          children: <Widget>[
-            ListTile(
-              title: Text('Fêmea'),
-              leading: Radio<String>(
-                onChanged: (String? value) {bloc.changeSexoCavalo;},
-                value: "F",
-                groupValue: snapshot.data,
-              ),
-            ),
-            ListTile(
-              title: Text('Macho'),
-              leading: Radio<String>(
-                onChanged: (String? value) {bloc.changeSexoCavalo;},
-                value: "M",
-                groupValue: snapshot.data,
-              ),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Sexo*'),
+            SizedBox(height: 5,),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: [
+                    Radio<String>(
+                      onChanged: (value) {bloc.changeSexoCavalo(value!);},
+                      value: "F",
+                      groupValue: snapshot.data,
+                    ),
+                    Text('Fêmea'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Radio<String>(
+                      onChanged: (value) {bloc.changeSexoCavalo(value!);},
+                      value: "M",
+                      groupValue: snapshot.data,
+                    ),
+                    Text('Macho'),
+                  ],
+                ),
+              ],
             ),
           ],
         );
@@ -183,33 +199,41 @@ class CadastraCavalo extends StatelessWidget {
       stream: bloc.tipoRegistroCavalo,
       builder: ((context, AsyncSnapshot<String> snapshot) {
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Tipo de Registro:'),
+            Text('Tipo de Registro'),
+            SizedBox(height: 5,),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                ListTile(
-                  title: Text('Provisório'),
-                  leading: Radio<String>(
-                    onChanged: (String? value) {bloc.changeTipoRegistroCavalo;},
-                    value: "Provisório",
-                    groupValue: snapshot.data,
-                  ),
+                Row(
+                  children: [
+                    Radio<String>(
+                      onChanged: (value) {bloc.changeTipoRegistroCavalo(value!);},
+                      value: "Provisório",
+                      groupValue: snapshot.data,
+                    ),
+                    Text('Provisório'),
+                  ],
                 ),
-                ListTile(
-                  title: Text('Definitivo'),
-                  leading: Radio<String>(
-                    onChanged: (String? value) {bloc.changeTipoRegistroCavalo;},
-                    value: "Definitivo",
-                    groupValue: snapshot.data,
-                  ),
+                Row(
+                  children: [
+                    Radio<String>(
+                      onChanged: (value) {bloc.changeTipoRegistroCavalo(value!);},
+                      value: "Definitivo",
+                      groupValue: snapshot.data,
+                    ),
+                    Text('Definitivo'),
+                  ],
                 ),
               ],
             ),
           ],
-        );        
+        );
       }),
     );
   }
+
 
   Widget numeroRegistroCavaloField(Bloc bloc) {
     return StreamBuilder(

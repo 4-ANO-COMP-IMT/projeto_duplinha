@@ -79,7 +79,7 @@ class CadastraCavalo extends StatelessWidget {
       stream: bloc.emailPasswordAreOkay,
       builder: (context, AsyncSnapshot<bool> snapshot){
          return ElevatedButton(
-          onPressed: snapshot.hasError ? null : (){}, //ainda não temos o que fazer, função vazia
+          onPressed: snapshot.hasData ? (){} : null, //ainda não temos o que fazer, função vazia
           child: Text('Login')
         );
       },

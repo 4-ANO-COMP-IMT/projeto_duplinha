@@ -95,8 +95,23 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
 
         ),
         children: [
-          DrawerHeader(
-            child: Text("Menu"),
+          SizedBox(
+            height: 60,
+            child: DrawerHeader(
+              child: Align(
+                child: Text(
+                  "Menu",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                alignment: Alignment.centerLeft,
+              ),
+              margin: EdgeInsets.only(
+                bottom: 0,
+              ),
+            ),
           ),
           ListTile(
             leading: FaIcon(FontAwesomeIcons.horseHead),

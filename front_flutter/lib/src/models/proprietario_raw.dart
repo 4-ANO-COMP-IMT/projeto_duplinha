@@ -63,6 +63,15 @@ class ProprietarioRaw {
     return CPFValidator.format(cpf);
   }
 
+  //Formata complemento
+  String escreveComplemento() {
+    if(complemento != null){
+      return complemento!;
+    } else {
+      return "Sem complemento" ;
+    }
+  }
+
   // Formata o estado
   String escreveEstado() {
     switch (estado) {

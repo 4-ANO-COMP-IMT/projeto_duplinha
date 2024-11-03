@@ -9,7 +9,7 @@ class CadastraCavalo extends StatelessWidget {
     final bloc = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro Cavalo'),
+        title: Text('Cadastrar Novo Cavalo'),
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded),

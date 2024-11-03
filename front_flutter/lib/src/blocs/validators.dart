@@ -120,4 +120,14 @@ mixin Validators {
       }
     }
   );
+
+  final validateNumero = StreamTransformer<String, String>.fromHandlers(
+    handleData: (num, sink) {
+      if (RegExp(r'^[0-9]+$').hasMatch(num)) {
+        sink.add(num);
+      } else {
+        sink.addError("Digite apenas números");
+      }
+    }
+  );
 }

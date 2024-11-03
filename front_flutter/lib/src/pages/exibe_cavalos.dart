@@ -64,6 +64,12 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
       floatingActionButton: menuButton(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: ListView.builder(
+        padding: EdgeInsets.only(
+          left: 200,
+          right: 200,
+          top: 20,
+          bottom: 20,
+        ),
         itemCount: cavalos?.length,
         itemBuilder: (context, index) {
           final cavalo = cavalos![index];
@@ -85,6 +91,8 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
 
   Widget menuButton(context) {
     return PopupMenuButton(
+      tooltip: "Menu",
+      iconSize: 50,
       icon: Icon(Icons.dehaze_rounded),
       onSelected: (route) => {Navigator.pushReplacementNamed(context, route)},
       itemBuilder: (BuildContext context) => <PopupMenuEntry>[

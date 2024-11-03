@@ -70,6 +70,12 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
       floatingActionButton: menuButton(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: ListView.builder(
+        padding: EdgeInsets.only(
+          left: 200,
+          right: 200,
+          top: 20,
+          bottom: 20,
+        ),
         itemCount: proprietarios?.length,
         itemBuilder: (context, index) {
           final proprietario = proprietarios![index];
@@ -91,6 +97,8 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
 
   Widget menuButton(context) {
     return PopupMenuButton(
+      tooltip: "Menu",
+      iconSize: 50,
       icon: Icon(Icons.dehaze_rounded),
       onSelected: (route) => {Navigator.pushReplacementNamed(context, route)},
       itemBuilder: (BuildContext context) => <PopupMenuEntry>[

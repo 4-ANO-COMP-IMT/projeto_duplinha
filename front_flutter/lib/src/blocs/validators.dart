@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:email_validator/email_validator.dart';
 import 'package:intl/intl.dart';
+import 'package:cpf_cnpj_validator/cpf_validator.dart';
 
 mixin Validators {
   final validateTexto = StreamTransformer<String, String>.fromHandlers(
@@ -107,6 +108,16 @@ mixin Validators {
         }
       }
       return sink.addError("Sigla de estado inválido");
+    }
+  );
+
+  final validateCpf = StreamTransformer<String, String>.fromHandlers(
+    handleData: (cpf, sink) {
+      if (CPFValidator.isValid(cpf)) {
+        sink.add(cpf);
+      } else {
+        sink.addError("CPF inválido");
+      }
     }
   );
 }

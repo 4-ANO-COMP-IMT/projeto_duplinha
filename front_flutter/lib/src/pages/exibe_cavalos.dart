@@ -4,6 +4,8 @@ import '../components/cavalo_widget.dart';
 import '../models/cavalo.dart';
 import '../models/cavalo_raw.dart';
 import '../services/cavalo_service.dart';
+import '../../routes.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ExibeCavalos extends StatefulWidget {
   @override
@@ -47,17 +49,20 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cavalos cadastrados'),
+        title: const Text('Cavalos Cadastrados'),
         centerTitle: true,
-        actions: const <Widget>[
+        leading: null,
+        actions: <Widget>[
           FilledButton.tonal(
-            onPressed: null, //() {
-              //Navigator.pushNamed(context, '/cadastra-cavalo');
-            //},
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, AppRoutes.cadastraCavalo);
+            },
             child: Text('Cadastrar cavalo'),
           ),
         ],
       ),
+      floatingActionButton: menuButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: ListView.builder(
         itemCount: cavalos?.length,
         itemBuilder: (context, index) {
@@ -75,6 +80,29 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
           );
         },
       ),
+    );
+  }
+
+  Widget menuButton(context) {
+    return PopupMenuButton(
+      icon: Icon(Icons.dehaze_rounded),
+      onSelected: (route) => {Navigator.pushReplacementNamed(context, route)},
+      itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+        PopupMenuItem(
+          value: AppRoutes.exibeCavalos,
+          child: ListTile(
+            leading: FaIcon(FontAwesomeIcons.horseHead),
+            title: Text('Cavalos'),
+          ),
+        ),
+        PopupMenuItem(
+          value: AppRoutes.exibeProprietarios,
+          child: ListTile(
+            leading: FaIcon(FontAwesomeIcons.solidUser),
+            title: Text('Proprietários'),
+          ),
+        ),
+      ],
     );
   }
 }

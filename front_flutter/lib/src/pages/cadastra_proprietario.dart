@@ -191,60 +191,78 @@ class CadastraProprietario extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            StreamBuilder(
-              stream: bloc.logradouroProprietario,
-              builder: ((context, AsyncSnapshot<String> snapshot) {
-                return TextField(
-                  onChanged: bloc.changeLogradouroProprietario,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: "Ex.: Rua das Flores, 100",
-                    labelText: "Endereço*",
-                    errorText: snapshot.hasError ? snapshot.error.toString() : null,
-                  ),
-                );
-              })
+            Text('Endereço*',
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
-            StreamBuilder(
-              stream: bloc.complementoProprietario,
-              builder: ((context, AsyncSnapshot<String> snapshot) {
-                return TextField(
-                  onChanged: bloc.changeComplementoProprietario,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: "Ex.: Bloco A, Apt 200",
-                    labelText: "Complemento",
+            SizedBox(height: 10),
+            Container(
+              margin: EdgeInsets.only(
+                left: 15
+              ),
+              child: Column(
+                children: [
+                  StreamBuilder(
+                    stream: bloc.logradouroProprietario,
+                    builder: ((context, AsyncSnapshot<String> snapshot) {
+                      return TextField(
+                        onChanged: bloc.changeLogradouroProprietario,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          hintText: "Ex.: Rua das Flores, 100",
+                          labelText: "Logradouro*",
+                          errorText: snapshot.hasError ? snapshot.error.toString() : null,
+                        ),
+                      );
+                    })
                   ),
-                );
-              })
-            ),
-            StreamBuilder(
-              stream: bloc.cidadeProprietario,
-              builder: ((context, AsyncSnapshot<String> snapshot) {
-                return TextField(
-                  onChanged: bloc.changeCidadeProprietario,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: "Ex.: São Bernardo do Campo",
-                    labelText: "Cidade*",
-                    errorText: snapshot.hasError ? snapshot.error.toString() : null,
+                  SizedBox(height: 20,),
+                  StreamBuilder(
+                    stream: bloc.complementoProprietario,
+                    builder: ((context, AsyncSnapshot<String> snapshot) {
+                      return TextField(
+                        onChanged: bloc.changeComplementoProprietario,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          hintText: "Ex.: Bloco A, Apt 200",
+                          labelText: "Complemento",
+                        ),
+                      );
+                    })
                   ),
-                );
-              })
-            ),
-            StreamBuilder(
-              stream: bloc.estadoProprietario,
-              builder: ((context, AsyncSnapshot<String> snapshot) {
-                return TextField(
-                  onChanged: bloc.changeEstadoProprietario,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: "Ex.: SP",
-                    labelText: "Estado*",
-                    errorText: snapshot.hasError ? snapshot.error.toString() : null,
+                  SizedBox(height: 20,),
+                  StreamBuilder(
+                    stream: bloc.cidadeProprietario,
+                    builder: ((context, AsyncSnapshot<String> snapshot) {
+                      return TextField(
+                        onChanged: bloc.changeCidadeProprietario,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          hintText: "Ex.: São Bernardo do Campo",
+                          labelText: "Cidade*",
+                          errorText: snapshot.hasError ? snapshot.error.toString() : null,
+                        ),
+                      );
+                    })
                   ),
-                );
-              })
+                  SizedBox(height: 20,),
+                  StreamBuilder(
+                    stream: bloc.estadoProprietario,
+                    builder: ((context, AsyncSnapshot<String> snapshot) {
+                      return TextField(
+                        onChanged: bloc.changeEstadoProprietario,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          hintText: "Ex.: SP",
+                          labelText: "Estado*",
+                          errorText: snapshot.hasError ? snapshot.error.toString() : null,
+                        ),
+                      );
+                    })
+                  ),
+                ],
+              ),
             ),
           ],
         );

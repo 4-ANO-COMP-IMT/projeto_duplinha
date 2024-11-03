@@ -81,7 +81,7 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
 
           return Cartao(
             onTap: () {
-              //Navigator.pushNamed(context, '/cavalo:idCavalo');
+              Navigator.pushReplacementNamed(context, '/proprietario/${proprietario.id}');
             },
             child: ProprietarioWidget(
               nome: proprietario.nome,

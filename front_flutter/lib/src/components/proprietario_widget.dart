@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class ProprietarioWidget extends StatelessWidget {
   final String nome;
@@ -13,13 +15,24 @@ class ProprietarioWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Row(
       children: [
-        Text(nome, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        SizedBox(height: 8),
-        Text("Telefone: $telefone", style: TextStyle(fontSize: 16)),
-        Text("E-mail: $email", style: TextStyle(fontSize: 16)),
+        FaIcon(
+          FontAwesomeIcons.solidUser,
+          size: 50,
+        ),
+        SizedBox(
+          width: 30,
+        ),
+        Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(nome, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          SizedBox(height: 8),
+          Text("Telefone: $telefone", style: TextStyle(fontSize: 16)),
+          Text("E-mail: $email", style: TextStyle(fontSize: 16)),
+      ],
+    )
       ],
     );
   }

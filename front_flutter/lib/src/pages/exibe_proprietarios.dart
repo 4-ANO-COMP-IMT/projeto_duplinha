@@ -104,7 +104,7 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
         PopupMenuItem(
           value: AppRoutes.exibeProprietarios,
           child: ListTile(
-            leading: Icon(Icons.person),
+            leading: FaIcon(FontAwesomeIcons.solidUser),
             title: Text('Proprietários'),
           ),
         ),

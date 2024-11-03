@@ -41,6 +41,7 @@ class Bloc with Validators {
     _numeroRegistroCavaloController.add("");
     _chipCavaloController.add("");
     _initController.add("");
+    _complementoProprietarioController.add("");
   }
 
   Stream<String> get nomeCavalo => _nomeCavaloController.stream.transform(validateTexto);
@@ -87,6 +88,30 @@ class Bloc with Validators {
   Stream<String> get emailProprietario => _emailProprietarioController.stream.transform(validateEmail);
   Stream<String> get nomeContatoEmergenciaProprietario => _nomeContatoEmergenciaProprietarioController.stream.transform(validateTexto);
   Stream<String> get telefoneContatoEmergenciaProprietario => _telefoneContatoEmergenciaProprietarioController.stream.transform(validateNumero);
+  Stream<bool> get addressFieldsAreOkay => CombineLatestStream.combine3(
+    logradouroProprietario,
+    cidadeProprietario,
+    estadoProprietario,
+    (l, c, e) => true
+  );
+  Stream<String> get ownerName => CombineLatestStream.combine2(
+    nomeProprietario,
+    sobrenomeProprietario,
+    (n, s) => n + " " + s
+  );
+  Stream<bool> get allOwnerFieldsAreOkay => CombineLatestStream.combine9(
+    ownerName,
+    cpfProprietario,
+    generoProprietario,
+    dtNascProprietario,
+    telefoneProprietario,
+    addressFieldsAreOkay,
+    emailProprietario,
+    nomeContatoEmergenciaProprietario,
+    telefoneContatoEmergenciaProprietario,
+    (o, c, g, d, t, a, e, n, te) => true
+  );
+  
 
   Function(String) get changeNomeCavalo => _nomeCavaloController.sink.add;
   Function(String) get changeRacaCavalo => _racaCavaloController.sink.add;

@@ -317,9 +317,7 @@ class CadastraCavalo extends StatelessWidget {
       stream: bloc.allFieldsAreOkay,
       builder: (context, AsyncSnapshot<bool> snapshot){
          return ElevatedButton(
-          onPressed: () => {!snapshot.hasData ? null : snapshot.requireData ? bloc.submitCavaloForm : null,
-          //Navigator.pushNamed(context, AppRoutes.exibeCavalos) //Cadastro funciona sem a rota e rota funcoina sem o cadastro. Arrumar!
-          //A data também está sendo enviada no formato errado, dar uma olhada e corrigir
+          onPressed: () => {!snapshot.hasData ? null : snapshot.requireData ? bloc.submitCavaloForm(context) : null,
           },
           child: Text('Cadastrar')
         );

@@ -68,7 +68,7 @@ class Bloc with Validators {
   Function(String) get changeChipCavalo => _chipCavaloController.sink.add;
   Function(String) get changeBaiaCavalo => _baiaCavaloController.sink.add;
 
-  void submitCavaloForm() {
+  void submitCavaloForm(context) {
     final cavaloService = CavaloService();
 
     CavaloRaw novoCavalo = CavaloRaw(
@@ -89,6 +89,7 @@ class Bloc with Validators {
     try {
       cavaloService.addCavalo(novoCavalo);
       print("cavalo adicionado");
+      Navigator.pushNamed(context, AppRoutes.exibeCavalos);
     } catch (erro) {
       print("Erro ao adicionar cavalo: $erro");
     }

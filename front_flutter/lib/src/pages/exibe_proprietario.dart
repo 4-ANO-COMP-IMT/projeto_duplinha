@@ -22,7 +22,7 @@ class _ExibeProprietarioState extends State<ExibeProprietario> {
     fetchProprietario(widget.idProprietario);
   }
 
-  Future<void> fetchProprietario(idCavalo) async {
+  Future<void> fetchProprietario(idProprietario) async {
       try {
         ProprietarioService service = ProprietarioService();
         proprietario = await service.fetchProprietario(idProprietario);

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/proprietario_raw.dart';
 
-class CavaloService {
+class ProprietarioService {
   final String apiUrl = 'http://localhost:31498/cavalos';
 
   Future<List<ProprietarioRaw>> fetchProprietarios() async {

@@ -54,7 +54,7 @@ class CavaloService {
         if(cavalo.id == idCavalo){
           return Cavalo(cavalo);
         }
-      }
+      } return null;
     } else {
       throw Exception('Falha ao carregar dados dos cavalos');
     }

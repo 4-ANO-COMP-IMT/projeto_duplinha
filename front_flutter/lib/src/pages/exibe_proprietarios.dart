@@ -65,6 +65,8 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
           ),
         ],
       ),
+      floatingActionButton: menuButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: ListView.builder(
         itemCount: proprietarios?.length,
         itemBuilder: (context, index) {
@@ -82,6 +84,29 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
           );
         },
       ),
+    );
+  }
+
+  Widget menuButton(context) {
+    return PopupMenuButton(
+      icon: Icon(Icons.dehaze_rounded),
+      onSelected: (route) => {Navigator.pushReplacementNamed(context, route)},
+      itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+        PopupMenuItem(
+          value: AppRoutes.exibeCavalos,
+          child: ListTile(
+            leading: Icon(Icons.question_mark_rounded),
+            title: Text('Cavalos'),
+          ),
+        ),
+        PopupMenuItem(
+          value: AppRoutes.exibeProprietarios,
+          child: ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Proprietários'),
+          ),
+        ),
+      ],
     );
   }
 }

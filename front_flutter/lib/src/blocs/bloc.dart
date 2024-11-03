@@ -1,6 +1,10 @@
 import 'dart:async';
 import 'validators.dart';
 import 'package:rxdart/rxdart.dart';
+import '../services/cavalo_service.dart';
+import '../models/cavalo_raw.dart';
+import '../../routes.dart';
+import 'package:flutter/material.dart';
 
 class Bloc with Validators {
   final _nomeCavaloController = BehaviorSubject <String> ();
@@ -14,6 +18,7 @@ class Bloc with Validators {
   final _chipCavaloController = BehaviorSubject <String> ();
   final _baiaCavaloController = BehaviorSubject <String> ();
   final _initController = BehaviorSubject <String> ();
+  final cavaloService = CavaloService();
 
   Bloc() {
     _tipoRegistroCavaloController.add("");
@@ -64,28 +69,30 @@ class Bloc with Validators {
   Function(String) get changeBaiaCavalo => _baiaCavaloController.sink.add;
 
   void submitCavaloForm() {
-    final nome = _nomeCavaloController.value;
-    final raca = _racaCavaloController.value;
-    final dt_nasc = _dtNascCavaloController.value;
-    final pelagem = _pelagemCavaloController.value;
-    final castrado = _castradoCavaloController.value;
-    final sexo = _sexoCavaloController.value;
-    final num_reg = _numeroRegistroCavaloController.valueOrNull;
-    final num_chip = _chipCavaloController.valueOrNull;
-    final tipo_reg = _tipoRegistroCavaloController.valueOrNull;
-    final baia = _baiaCavaloController.valueOrNull;
-    print(nome);
-    print(raca);
-    print(dt_nasc);
-    print(pelagem);
-    print(castrado);
-    print(sexo);
-    print(num_reg);
-    print(num_chip);
-    print(tipo_reg);
-    print(baia);
+    final cavaloService = CavaloService();
 
-    
+    CavaloRaw novoCavalo = CavaloRaw(
+      id: "",
+      nome: _nomeCavaloController.value,
+      baia:  _baiaCavaloController.valueOrNull,
+      pelagem: _pelagemCavaloController.value,
+      dataNascimento: _dtNascCavaloController.value,
+      sexo: _sexoCavaloController.value,
+      numReg: _numeroRegistroCavaloController.valueOrNull,
+      tipoReg: _tipoRegistroCavaloController.valueOrNull,
+      chip:  _chipCavaloController.valueOrNull,
+      raca: _racaCavaloController.value,
+      castrado: _castradoCavaloController.value,
+      proprietarios: [],
+    );
+
+    try {
+      cavaloService.addCavalo(novoCavalo);
+      print("cavalo adicionado");
+    } catch (erro) {
+      print("Erro ao adicionar cavalo: $erro");
+    }
+
   }
 
   void clean() {

@@ -50,6 +50,7 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
       appBar: AppBar(
         title: const Text('Cavalos cadastrados'),
         centerTitle: true,
+        leading: null,
         actions: <Widget>[
           FilledButton.tonal(
             onPressed: () {

@@ -5,6 +5,7 @@ import '../models/cavalo.dart';
 import '../models/cavalo_raw.dart';
 import '../services/cavalo_service.dart';
 import '../../routes.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ExibeCavalos extends StatefulWidget {
   @override
@@ -90,7 +91,7 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
         PopupMenuItem(
           value: AppRoutes.exibeCavalos,
           child: ListTile(
-            leading: Icon(Icons.question_mark_rounded),
+            leading: FaIcon(FontAwesomeIcons.horseHead),
             title: Text('Cavalos'),
           ),
         ),

@@ -5,6 +5,8 @@ import '../models/proprietario.dart';
 import '../models/proprietario_raw.dart';
 import '../services/proprietario_service.dart';
 import '../../routes.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class ExibeProprietarios extends StatefulWidget {
   @override
@@ -95,7 +97,7 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
         PopupMenuItem(
           value: AppRoutes.exibeCavalos,
           child: ListTile(
-            leading: Icon(Icons.question_mark_rounded),
+            leading: FaIcon(FontAwesomeIcons.horseHead),
             title: Text('Cavalos'),
           ),
         ),

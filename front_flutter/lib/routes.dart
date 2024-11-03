@@ -4,7 +4,7 @@ import 'src/pages/cadastra_cavalo.dart';
 import 'src/pages/cadastra_proprietario.dart';
 import 'src/pages/exibe_proprietarios.dart';
 import 'src/pages/exibe_cavalo.dart';
-//import 'src/pages/exibe_proprietario.dart';
+import 'src/pages/exibe_proprietario.dart';
 
 class AppRoutes {
   static const String exibeCavalos = '/cavalos';
@@ -31,12 +31,12 @@ class AppRoutes {
       );
     }
 
-   /* if (uri.pathSegments.length == 2 && uri.pathSegments[0] == 'proprietario') {
-      var idCavalo = uri.pathSegments[1];
+   if (uri.pathSegments.length == 2 && uri.pathSegments[0] == 'proprietario') {
+      var idProprietario = uri.pathSegments[1];
       return MaterialPageRoute(
-        builder: (context) => ExibeProprietario(idProprietario: idCavalo),
+        builder: (context) => ExibeProprietario(idProprietario: idProprietario),
       );
-    } */
+    } 
 
     return null;
   }

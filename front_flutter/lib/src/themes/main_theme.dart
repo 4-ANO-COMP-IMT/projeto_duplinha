@@ -39,6 +39,13 @@ class MainTheme {
     iconTheme: IconThemeData(
       color: Color(0xFF1ABC9C),
     ),
-    
+    navigationDrawerTheme: NavigationDrawerThemeData(
+      iconTheme: WidgetStatePropertyAll(
+        IconThemeData(
+          color: Color(0xFF1ABC9C),
+        ),
+      ) 
+
+    ),
   );
 }

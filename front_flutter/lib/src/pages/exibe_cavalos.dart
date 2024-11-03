@@ -48,7 +48,7 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cavalos cadastrados'),
+        title: const Text('Cavalos Cadastrados'),
         centerTitle: true,
         leading: null,
         actions: <Widget>[

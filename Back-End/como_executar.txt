@@ -1,0 +1,16 @@
+Para executar os micro serviços usando o Docker (usando barramento-de-eventos como exemplo)
+1. No terminal dentro da pasta do micro serviço: docker build -t iz120/barramento-de-eventos .
+2. No mesmo terminal: docker push iz120/barramento-de-eventos
+3. No terminal de implantacao (funciona em qualquer terminal): kubectl rollout restart deployment barramento-de-eventos-deploy
+
+Toda vez que o código tiver uma alteração, o build, push e rollout devem ser feitos novamente
+
+Para executar o front-end
+1. No terminal aberto no diretório front-end: docker build -t iz120/haras-front .
+2. No mesmo terminal: docker push iz120/haras-front
+3. No terminal de implantacao (funciona em qualquer terminal): kubectl rollout restart deployment haras-front-deploy
+
+Para remover um service/pod/deploy:
+1. Remover o pod não funciona, ele apenas cria outro, devemos deletar o deployment e o service
+    a. kubectl delete [nome do deploy]
+    b. kubectl delete [nome do service]

@@ -15,7 +15,7 @@ class CadastraCavalo extends StatelessWidget {
           icon: Icon(Icons.arrow_back_rounded),
           onPressed: () {
             bloc.clean();
-            Navigator.pushNamed(context, AppRoutes.exibeCavalos);
+            Navigator.pushReplacementNamed(context, AppRoutes.exibeCavalos);
             },
           ),
       ),

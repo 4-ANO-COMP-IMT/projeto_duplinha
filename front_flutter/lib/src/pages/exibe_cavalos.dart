@@ -54,7 +54,7 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
         actions: <Widget>[
           FilledButton.tonal(
             onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.cadastraCavalo);
+              Navigator.pushReplacementNamed(context, AppRoutes.cadastraCavalo);
             },
             child: Text('Cadastrar cavalo'),
           ),

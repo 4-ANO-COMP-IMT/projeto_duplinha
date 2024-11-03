@@ -59,7 +59,7 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
         actions: <Widget>[
           FilledButton.tonal(
             onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.cadastraProprietario);
+              Navigator.pushReplacementNamed(context, AppRoutes.cadastraProprietario);
             },
             child: Text('Cadastrar proprietário'),
           ),

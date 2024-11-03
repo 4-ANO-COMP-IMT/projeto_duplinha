@@ -15,7 +15,7 @@ class CadastraProprietario extends StatelessWidget {
           icon: Icon(Icons.arrow_back_rounded),
           onPressed: () {
             bloc.clean();
-            Navigator.pushNamed(context, AppRoutes.exibeProprietarios);
+            Navigator.pushReplacementNamed(context, AppRoutes.exibeProprietarios);
             },
           ),
       ),

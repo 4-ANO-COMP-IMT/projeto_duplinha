@@ -17,7 +17,7 @@ class AppRoutes {
       exibeCavalos: (context) => ExibeCavalos(),
       exibeProprietarios: (context) => ExibeProprietarios(),
       cadastraCavalo: (context) => Scaffold(body: CadastraCavalo()),
-      cadastraProprietario: (context) => CadastraProprietario(),
+      cadastraProprietario: (context) => Scaffold(body: CadastraProprietario()),
       //exibeCavalo: (context) => ExibeCavalo(idCavalo),
       //exibeProprietario: (context) => ExibeProprietario(idProprietario),
     };

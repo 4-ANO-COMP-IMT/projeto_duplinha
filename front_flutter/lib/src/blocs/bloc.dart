@@ -20,6 +20,22 @@ class Bloc with Validators {
   final _initController = BehaviorSubject <String> ();
   final cavaloService = CavaloService();
 
+  final _nomeProprietarioController = BehaviorSubject <String> ();
+  final _sobrenomeProprietarioController = BehaviorSubject <String> ();
+  final _cpfProprietarioController = BehaviorSubject <String> ();
+  final _generoProprietarioController = BehaviorSubject <String> ();
+  final _dtNascProprietarioController = BehaviorSubject <String> ();
+  final _telefoneProprietarioController = BehaviorSubject <String> ();
+  final _enderecoProprietarioController = BehaviorSubject <String> ();
+  final _logradouroProprietarioController = BehaviorSubject <String> ();
+  final _complementoProprietarioController = BehaviorSubject <String> ();
+  final _cidadeProprietarioController = BehaviorSubject <String> ();
+  final _estadoProprietarioController = BehaviorSubject <String> ();
+  final _emailProprietarioController = BehaviorSubject <String> ();
+  final _nomeContatoEmergenciaProprietarioController = BehaviorSubject <String> ();
+  final _telefoneContatoEmergenciaProprietarioController = BehaviorSubject <String> ();
+  final proprietarioService = ProprietarioService();
+
   Bloc() {
     _tipoRegistroCavaloController.add("");
     _numeroRegistroCavaloController.add("");
@@ -56,6 +72,22 @@ class Bloc with Validators {
     registryFieldsAreOkay,
     (m, r) => validateForm(m, r));
 
+
+  Stream<String> get nomeProprietario => _nomeProprietarioController.stream.transform(validateTexto);
+  Stream<String> get sobrenomeProprietario => _sobrenomeProprietarioController.stream.transform(validateTexto);
+  Stream<String> get cpfProprietario => _cpfProprietarioController.stream.transform(validateCpf);
+  Stream<String> get generoProprietario => _generoProprietarioController.stream.transform(validateTexto);
+  Stream<String> get dtNascProprietario => _dtNascProprietarioController.stream.transform(validateData);
+  Stream<String> get telefoneProprietario => _telefoneProprietarioController.stream.transform(validateTelefone);
+  Stream<String> get enderecoProprietario => _enderecoProprietarioController.stream.transform(validateTexto); //Fazer um combine do endereço?
+  Stream<String> get logradouroProprietario => _logradouroProprietarioController.stream.transform(validateTexto);
+  Stream<String> get complementoProprietario => _complementoProprietarioController.stream.transform(validateOpcional);
+  Stream<String> get cidadeProprietario => _cidadeProprietarioController.stream.transform(validateTexto);
+  Stream<String> get estadoProprietario => _estadoProprietarioController.stream.transform(validateEstado);
+  Stream<String> get emailProprietario => _emailProprietarioController.stream.transform(validateEmail);
+  Stream<String> get nomeContatoEmergenciaProprietario => _nomeContatoEmergenciaProprietarioController.stream.transform(validateTexto);
+  Stream<String> get telefoneContatoEmergenciaProprietario => _telefoneContatoEmergenciaProprietarioController.stream.transform(validateTelefone);
+
   Function(String) get changeNomeCavalo => _nomeCavaloController.sink.add;
   Function(String) get changeRacaCavalo => _racaCavaloController.sink.add;
   Function(String) get changeDtNascCavalo => _dtNascCavaloController.sink.add;
@@ -66,6 +98,20 @@ class Bloc with Validators {
   Function(String) get changeNumeroRegistroCavalo => _numeroRegistroCavaloController.sink.add;
   Function(String) get changeChipCavalo => _chipCavaloController.sink.add;
   Function(String) get changeBaiaCavalo => _baiaCavaloController.sink.add;
+
+  Function(String) get changeNomeProprietario => _nomeProprietarioController.sink.add;
+  Function(String) get changeSobrenomeProprietario => _sobrenomeProprietarioController.sink.add;
+  Function(String) get changeCpfProprietario => _cpfProprietarioController.sink.add;
+  Function(String) get changeGeneroProprietario => _generoProprietarioController.sink.add;
+  Function(String) get changeDtNascProprietario => _dtNascProprietarioController.sink.add;
+  Function(String) get changeTelefoneProprietario => _telefoneProprietarioController.sink.add;
+  Function(String) get changeEnderecoProprietario => _enderecoProprietarioController.sink.add;
+  Function(String) get changeLogradouroProprietario => _logradouroProprietarioController.sink.add;
+  Function(String) get changeComplementoProprietario => _complementoProprietarioController.sink.add;
+  Function(String) get changeCidadeProprietario => _cidadeProprietarioController.sink.add;
+  Function(String) get changeEstadoProprietario => _estadoProprietarioController.sink.add;
+  Function(String) get changeNomeContatoEmergenciaProprietario => _nomeContatoEmergenciaProprietarioController.sink.add;
+  Function(String) get changeTelefoneContatoEmergenciaProprietario => _telefoneContatoEmergenciaProprietarioController.sink.add;
 
   void submitCavaloForm(context) {
     final cavaloService = CavaloService();
@@ -116,7 +162,4 @@ class Bloc with Validators {
     _baiaCavaloController.close();
   }
 }
-
-//essa é a instância global e ela não será mais usada, pode apagar ou comentar
-//final bloc = Bloc();
 

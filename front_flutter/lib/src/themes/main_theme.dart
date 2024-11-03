@@ -22,7 +22,7 @@ class MainTheme {
         ),
         shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)), // Bordas arredondadas
+            borderRadius: BorderRadius.all(Radius.circular(12)), // Bordas arredondadas
           ),
         ),
       ),
@@ -31,7 +31,14 @@ class MainTheme {
 
     ),
     appBarTheme: const AppBarTheme(
-
+      titleTextStyle: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+      ),
     ),
+    iconTheme: IconThemeData(
+      color: Color(0xFF1ABC9C),
+    ),
+    
   );
 }

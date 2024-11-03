@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'package:front_flutter/src/models/proprietario_raw.dart';
+
 import 'validators.dart';
 import 'package:rxdart/rxdart.dart';
 import '../services/cavalo_service.dart';
 import '../models/cavalo_raw.dart';
 import '../../routes.dart';
 import 'package:flutter/material.dart';
+import '../services/proprietario_service.dart';
 
 class Bloc with Validators {
   final _nomeCavaloController = BehaviorSubject <String> ();
@@ -94,10 +97,10 @@ class Bloc with Validators {
     estadoProprietario,
     (l, c, e) => true
   );
-  Stream<String> get ownerName => CombineLatestStream.combine2(
+  Stream<bool> get ownerName => CombineLatestStream.combine2(
     nomeProprietario,
     sobrenomeProprietario,
-    (n, s) => n + " " + s
+    (n, s) => true
   );
   Stream<bool> get allOwnerFieldsAreOkay => CombineLatestStream.combine9(
     ownerName,
@@ -164,6 +167,38 @@ class Bloc with Validators {
       Navigator.pushNamed(context, AppRoutes.exibeCavalos);
     } catch (erro) {
       print("Erro ao adicionar cavalo: $erro"); // MELHORIA: exibir esse erro na tela
+    }
+
+  }
+
+  void submitOwnerForm(context) {
+    final proprietarioService = ProprietarioService();
+
+    ProprietarioRaw novoProprietario = ProprietarioRaw(
+      id: "",
+      nome: _nomeProprietarioController.value,
+      sobrenome: _sobrenomeProprietarioController.value,
+      cpf: _cpfProprietarioController.value,
+      genero: _generoProprietarioController.value,
+      dataNascimento: _dtNascProprietarioController.value,
+      telefone: _telefoneProprietarioController.value,
+      logradouro: _logradouroProprietarioController.value,
+      complemento: _complementoProprietarioController.valueOrNull,
+      cidade: _cidadeProprietarioController.value,
+      estado: _estadoProprietarioController.value,
+      email: _emailProprietarioController.value,
+      nomeContatoEmergencia: _nomeContatoEmergenciaProprietarioController.value,
+      telefoneContatoEmergencia: _telefoneContatoEmergenciaProprietarioController.value,
+      cavalos: [],
+    );
+
+    try {
+      proprietarioService.addProprietario(novoProprietario);
+      print("proprietario adicionado"); // MELHORIA: adicionar um toast ou uma mensagem indicando que o cadastro deu certo
+      clean();
+      Navigator.pushNamed(context, AppRoutes.exibeProprietarios);
+    } catch (erro) {
+      print("Erro ao adicionar proprietario: $erro"); // MELHORIA: exibir esse erro na tela
     }
 
   }

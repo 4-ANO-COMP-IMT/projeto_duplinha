@@ -91,12 +91,22 @@ mixin Validators {
   final validateEmail = StreamTransformer<String, String>.fromHandlers(
     handleData: (email, sink) {
       if (EmailValidator.validate(email)) {
-        //Adicionamos ao sink, permitindo o fluxo do e-mail adiante
         sink.add(email);
       } else {
-        //Caso contrário, adicionamos um erro
         sink.addError("E-mail inválido");
       }
+    }
+  );
+
+  final validateEstado = StreamTransformer<String, String>.fromHandlers(
+    handleData: (estado, sink) {
+      final listaEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"];
+      for(final estadoLista in listaEstados){
+        if(estado == estadoLista){
+          sink.add(estado);
+        }
+      }
+      return sink.addError("Sigla de estado inválido");
     }
   );
 }

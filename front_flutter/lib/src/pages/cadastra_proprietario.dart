@@ -326,7 +326,7 @@ class CadastraProprietario extends StatelessWidget {
       stream: bloc.allOwnerFieldsAreOkay,
       builder: (context, AsyncSnapshot<bool> snapshot){
          return ElevatedButton(
-          onPressed: null, //!snapshot.hasData ? null : snapshot.requireData ? (){bloc.submitOwnerForm(context);} : null,
+          onPressed: !snapshot.hasData ? null : snapshot.requireData ? (){bloc.submitOwnerForm(context);} : null,
           child: Text('Cadastrar')
         );
       },

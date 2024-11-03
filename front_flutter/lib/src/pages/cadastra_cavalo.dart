@@ -314,7 +314,7 @@ class CadastraCavalo extends StatelessWidget {
 
   Widget submitButton(Bloc bloc) {
     return StreamBuilder(
-      stream: bloc.allFieldsAreOkay,
+      stream: bloc.allHorseFieldsAreOkay,
       builder: (context, AsyncSnapshot<bool> snapshot){
          return ElevatedButton(
           onPressed: !snapshot.hasData ? null : snapshot.requireData ? (){bloc.submitCavaloForm(context);} : null,

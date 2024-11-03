@@ -38,16 +38,15 @@ class Bloc with Validators {
   Stream<String> get chipCavalo => _chipCavaloController.stream.transform(validateChip);
   Stream<String> get baiaCavalo => _baiaCavaloController.stream.transform(validateOpcional);
   Stream<String> get init => _initController.stream.transform(validateInit);
-  Stream<bool> get fieldsAreOkay => CombineLatestStream.combine8(
+  Stream<bool> get fieldsAreOkay => CombineLatestStream.combine7(
       nomeCavalo, 
       racaCavalo, 
       dtNascCavalo, 
       pelagemCavalo, 
       castradoCavalo, 
       sexoCavalo,
-      init,
       chipCavalo,
-      (n, r, d, p, c, s, v, h) => true);
+      (n, r, d, p, c, s, h) => true);
   Stream<bool> get registryFieldsAreOkay => CombineLatestStream.combine2(
     tipoRegistroCavalo,
     numeroRegistroCavalo,
@@ -88,10 +87,11 @@ class Bloc with Validators {
 
     try {
       cavaloService.addCavalo(novoCavalo);
-      print("cavalo adicionado");
+      print("cavalo adicionado"); // MELHORIA: adicionar um toast ou uma mensagem indicando que o cadastro deu certo
+      clean();
       Navigator.pushNamed(context, AppRoutes.exibeCavalos);
     } catch (erro) {
-      print("Erro ao adicionar cavalo: $erro");
+      print("Erro ao adicionar cavalo: $erro"); // MELHORIA: exibir esse erro na tela
     }
 
   }

@@ -110,6 +110,7 @@ class Bloc with Validators {
   Function(String) get changeComplementoProprietario => _complementoProprietarioController.sink.add;
   Function(String) get changeCidadeProprietario => _cidadeProprietarioController.sink.add;
   Function(String) get changeEstadoProprietario => _estadoProprietarioController.sink.add;
+  Function(String) get changeEmailProprietario => _emailProprietarioController.sink.add;
   Function(String) get changeNomeContatoEmergenciaProprietario => _nomeContatoEmergenciaProprietarioController.sink.add;
   Function(String) get changeTelefoneContatoEmergenciaProprietario => _telefoneContatoEmergenciaProprietarioController.sink.add;
 

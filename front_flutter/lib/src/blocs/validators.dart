@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:email_validator/email_validator.dart';
 import 'package:intl/intl.dart';
 import 'package:cpf_cnpj_validator/cpf_validator.dart';
+import '../models/cavalo.dart';
+import '../models/proprietario.dart';
 
 mixin Validators {
   final validateTexto = StreamTransformer<String, String>.fromHandlers(
@@ -127,6 +129,18 @@ mixin Validators {
       } else {
         sink.addError("Digite apenas números");
       }
+    }
+  );
+
+  final validateCavalo = StreamTransformer<Cavalo, Cavalo>.fromHandlers(
+    handleData: (cavalo, sink) {
+      sink.add(cavalo);
+    }
+  );
+
+  final validateProprietario = StreamTransformer<Proprietario, Proprietario>.fromHandlers(
+    handleData: (proprietario, sink) {
+      sink.add(proprietario);
     }
   );
 }

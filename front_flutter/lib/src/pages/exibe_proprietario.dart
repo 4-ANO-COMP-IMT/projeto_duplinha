@@ -113,8 +113,9 @@ class _ExibeProprietarioState extends State<ExibeProprietario> {
                 Text(proprietario!.telefone),
               ],
             ),
-            SizedBox(height: 30,),
-            Row(
+            SizedBox(height: 20,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Endereço: ",
@@ -122,6 +123,7 @@ class _ExibeProprietarioState extends State<ExibeProprietario> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                SizedBox(height: 20,),
                 Container(
                   margin: EdgeInsets.only(
                     left: 15
@@ -139,6 +141,7 @@ class _ExibeProprietarioState extends State<ExibeProprietario> {
                           Text(proprietario!.logradouro),
                         ]
                       ),
+                      SizedBox(height: 20,),
                       Row(
                         children: [
                           Text(
@@ -150,6 +153,7 @@ class _ExibeProprietarioState extends State<ExibeProprietario> {
                           Text(proprietario!.complemento!),
                         ]
                       ),
+                      SizedBox(height: 20,),
                       Row(
                         children: [
                           Text(
@@ -161,6 +165,7 @@ class _ExibeProprietarioState extends State<ExibeProprietario> {
                           Text(proprietario!.cidade),
                         ]
                       ),
+                      SizedBox(height: 20,),
                       Row(
                         children: [
                           Text(
@@ -175,7 +180,6 @@ class _ExibeProprietarioState extends State<ExibeProprietario> {
                     ],
                   ),
                 ),
-                
               ],
             ),
             SizedBox(height: 20,),

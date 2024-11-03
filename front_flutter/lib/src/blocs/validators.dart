@@ -87,4 +87,16 @@ mixin Validators {
       sink.add(init);
     }
   );
+
+  final validateEmail = StreamTransformer<String, String>.fromHandlers(
+    handleData: (email, sink) {
+      if (EmailValidator.validate(email)) {
+        //Adicionamos ao sink, permitindo o fluxo do e-mail adiante
+        sink.add(email);
+      } else {
+        //Caso contrário, adicionamos um erro
+        sink.addError("E-mail inválido");
+      }
+    }
+  );
 }

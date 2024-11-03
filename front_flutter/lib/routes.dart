@@ -15,7 +15,7 @@ class AppRoutes {
   static Map<String, WidgetBuilder> getRoutes() {
     return {
       exibeCavalos: (context) => ExibeCavalos(),
-      //exibeProprietarios: (context) => ExibeProprietarios(),
+      exibeProprietarios: (context) => ExibeProprietarios(),
       cadastraCavalo: (context) => Scaffold(body: CadastraCavalo()),
       cadastraProprietario: (context) => CadastraProprietario(),
       //exibeCavalo: (context) => ExibeCavalo(idCavalo),

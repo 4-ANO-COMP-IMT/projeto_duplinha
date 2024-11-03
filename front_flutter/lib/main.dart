@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return Provider(
       child: MaterialApp(
         title: 'Haras',
-        //theme: MainTheme.theme,
+        theme: MainTheme.theme,
         initialRoute: AppRoutes.exibeCavalos,
         routes: AppRoutes.getRoutes(),
       ),

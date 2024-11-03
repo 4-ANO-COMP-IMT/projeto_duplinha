@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'src/pages/exibe_cavalos.dart';
-import 'src/pages/exibe_proprietarios.dart';
 import 'src/pages/cadastra_cavalo.dart';
 import 'src/pages/cadastra_proprietario.dart';
+import 'src/pages/exibe_proprietarios.dart';
 
 class AppRoutes {
   static const String exibeCavalos = '/cavalos';
@@ -15,9 +15,9 @@ class AppRoutes {
   static Map<String, WidgetBuilder> getRoutes() {
     return {
       exibeCavalos: (context) => ExibeCavalos(),
-      //exibeProprietarios: (context) => ExibeProprietarios(),
-      //cadastraCavalo: (context) => CadastraCavalo(),
-      //cadastraProprietario: (context) => CadastraProprietario(),
+      exibeProprietarios: (context) => ExibeProprietarios(),
+      cadastraCavalo: (context) => Scaffold(body: CadastraCavalo()),
+      cadastraProprietario: (context) => Scaffold(body: CadastraProprietario()),
       //exibeCavalo: (context) => ExibeCavalo(idCavalo),
       //exibeProprietario: (context) => ExibeProprietario(idProprietario),
     };

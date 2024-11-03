@@ -28,4 +28,30 @@ class CavaloService {
       throw Exception('Falha ao carregar dados dos cavalos');
     }
   }
+
+  Future<void> addCavalo(CavaloRaw cavalo) async {
+    final response = await http.post(
+      Uri.parse(apiUrl),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode({
+        'nome': cavalo.nome,
+        'baia': cavalo.baia,
+        'pelagem': cavalo.pelagem,
+        'dt_nasc': cavalo.dataNascimento,
+        'sexo': cavalo.sexo,
+        'num_reg': cavalo.numReg,
+        'tipo_reg': cavalo.tipoReg,
+        'num_chip': cavalo.chip,
+        'raca': cavalo.raca,
+        'castrado': cavalo.castrado,
+        'id_proprietarios':[],
+      })
+    );
+
+    if(response.statusCode != 201) {
+      throw Exception('Falha ao cadastrar o cavalo');
+    }
+  }
 }

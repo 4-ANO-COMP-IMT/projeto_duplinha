@@ -1,32 +1,25 @@
 import 'package:flutter/material.dart';
-import 'src/pages/exibe_cavalos.dart';
-import 'src/pages/exibe_proprietarios.dart';
-import 'src/pages/cadastra_cavalo.dart'; 
-import 'src/pages/cadastra_proprietario.dart'; 
-import 'src/components/cartao.dart';
+import 'package:front_flutter/src/blocs/provider.dart';
 import 'routes.dart';
 import 'src/themes/main_theme.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
+  initializeDateFormatting('pt_BR', null);
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() {
-    return MyAppState();
-  }
-}
-
-class MyAppState extends State<MyApp> {
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Cavalos',
-      theme: MainTheme.theme,
-      home: ExibeCavalos(),
-      routes: AppRoutes.getRoutes(),
+    return Provider(
+      child: MaterialApp(
+        title: 'Haras',
+        //theme: MainTheme.theme,
+        initialRoute: AppRoutes.exibeCavalos,
+        routes: AppRoutes.getRoutes(),
+      ),
     );
   }
 }

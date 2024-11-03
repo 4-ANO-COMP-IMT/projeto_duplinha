@@ -7,6 +7,7 @@ import '../services/cavalo_service.dart';
 import '../../routes.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+
 class ExibeCavalos extends StatefulWidget {
   @override
   _ExibeCavalosState createState() => _ExibeCavalosState();
@@ -75,7 +76,7 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
 
           return Cartao(
             onTap: () {
-              //Navigator.pushNamed(context, '/cavalo:idCavalo');
+              Navigator.pushReplacementNamed(context, '/cavalo/${cavalo.id}');
             },
             child: CavaloWidget(
               nome: cavalo.nome,
@@ -83,10 +84,9 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
               pelagem: cavalo.pelagem,
             ),
           );
-        },
-      ),
-    );
-  }
+        })
+      );   
+    }
 
   Widget menuDrawer(context) {
     return Drawer(

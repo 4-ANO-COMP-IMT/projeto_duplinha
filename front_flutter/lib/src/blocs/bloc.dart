@@ -34,7 +34,7 @@ class Bloc with Validators {
   final _emailProprietarioController = BehaviorSubject <String> ();
   final _nomeContatoEmergenciaProprietarioController = BehaviorSubject <String> ();
   final _telefoneContatoEmergenciaProprietarioController = BehaviorSubject <String> ();
-  final proprietarioService = ProprietarioService();
+  //final proprietarioService = ProprietarioService();
 
   Bloc() {
     _tipoRegistroCavaloController.add("");
@@ -78,7 +78,7 @@ class Bloc with Validators {
   Stream<String> get cpfProprietario => _cpfProprietarioController.stream.transform(validateCpf);
   Stream<String> get generoProprietario => _generoProprietarioController.stream.transform(validateTexto);
   Stream<String> get dtNascProprietario => _dtNascProprietarioController.stream.transform(validateData);
-  Stream<String> get telefoneProprietario => _telefoneProprietarioController.stream.transform(validateTelefone);
+  Stream<String> get telefoneProprietario => _telefoneProprietarioController.stream.transform(validateNumero);
   Stream<String> get enderecoProprietario => _enderecoProprietarioController.stream.transform(validateTexto); //Fazer um combine do endereço?
   Stream<String> get logradouroProprietario => _logradouroProprietarioController.stream.transform(validateTexto);
   Stream<String> get complementoProprietario => _complementoProprietarioController.stream.transform(validateOpcional);
@@ -86,7 +86,7 @@ class Bloc with Validators {
   Stream<String> get estadoProprietario => _estadoProprietarioController.stream.transform(validateEstado);
   Stream<String> get emailProprietario => _emailProprietarioController.stream.transform(validateEmail);
   Stream<String> get nomeContatoEmergenciaProprietario => _nomeContatoEmergenciaProprietarioController.stream.transform(validateTexto);
-  Stream<String> get telefoneContatoEmergenciaProprietario => _telefoneContatoEmergenciaProprietarioController.stream.transform(validateTelefone);
+  Stream<String> get telefoneContatoEmergenciaProprietario => _telefoneContatoEmergenciaProprietarioController.stream.transform(validateNumero);
 
   Function(String) get changeNomeCavalo => _nomeCavaloController.sink.add;
   Function(String) get changeRacaCavalo => _racaCavaloController.sink.add;

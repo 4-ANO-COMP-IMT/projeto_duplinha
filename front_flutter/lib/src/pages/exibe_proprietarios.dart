@@ -45,8 +45,8 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
     if (erro != null) {
       return Center(
         child: TextButton(
-          onPressed: fetchProprietarios,
-          child: Text('Recarregar Página')
+          onPressed: () => {fetchProprietarios()},
+          child: Text(erro!)
         )
       );
     }

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/proprietario_raw.dart';
 
 class ProprietarioService {
-  final String apiUrl = 'http://localhost:31498/cavalos';
+  final String apiUrl = 'http://localhost:31498/proprietarios';
 
   Future<List<ProprietarioRaw>> fetchProprietarios() async {
     final response = await http.get(Uri.parse(apiUrl));

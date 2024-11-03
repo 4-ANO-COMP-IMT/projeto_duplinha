@@ -102,12 +102,11 @@ mixin Validators {
   final validateEstado = StreamTransformer<String, String>.fromHandlers(
     handleData: (estado, sink) {
       final listaEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"];
-      for(final estadoLista in listaEstados){
-        if(estado == estadoLista){
-          sink.add(estado);
-        }
+      if(listaEstados.contains(estado)){
+        sink.add(estado);
+      } else {
+        return sink.addError("Sigla de estado inválido");
       }
-      return sink.addError("Sigla de estado inválido");
     }
   );
 

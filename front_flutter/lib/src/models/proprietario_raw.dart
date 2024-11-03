@@ -47,6 +47,12 @@ class ProprietarioRaw {
     return idade;
   }
 
+  // Formata data
+  String formataData() {
+    final dataFormat = DateTime.parse(dataNascimento).day.toString() + "/" + DateTime.parse(dataNascimento).month.toString() + "/" + DateTime.parse(dataNascimento).year.toString();
+    return dataFormat;
+  }
+
   // Formata o nome
   String escreveNomeCompleto() {
     return nome + " " + sobrenome;

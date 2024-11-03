@@ -9,7 +9,7 @@ class Proprietario {
 
   String get nome => proprietario.escreveNomeCompleto() ;
 
-  String get dataNascimento => proprietario.dataNascimento ;
+  String get dataNascimento => proprietario.formataData() ;
 
   String get cpf => proprietario.escreveCpf() ;
 

@@ -67,8 +67,7 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
           ),
         ],
       ),
-      floatingActionButton: menuButton(context),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      drawer: menuDrawer(context),
       body: ListView.builder(
         padding: EdgeInsets.only(
           left: 200,
@@ -95,28 +94,28 @@ class _ExibeProprietariosState extends State<ExibeProprietarios> {
     );
   }
 
-  Widget menuButton(context) {
-    return PopupMenuButton(
-      tooltip: "Menu",
-      iconSize: 50,
-      icon: Icon(Icons.dehaze_rounded),
-      onSelected: (route) => {Navigator.pushReplacementNamed(context, route)},
-      itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-        PopupMenuItem(
-          value: AppRoutes.exibeCavalos,
-          child: ListTile(
+  Widget menuDrawer(context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.only(
+
+        ),
+        children: [
+          DrawerHeader(
+            child: Text("Menu"),
+          ),
+          ListTile(
             leading: FaIcon(FontAwesomeIcons.horseHead),
-            title: Text('Cavalos'),
+            title: Text("Cavalos"),
+            onTap: () => {Navigator.pushReplacementNamed(context, AppRoutes.exibeCavalos)},
           ),
-        ),
-        PopupMenuItem(
-          value: AppRoutes.exibeProprietarios,
-          child: ListTile(
+          ListTile(
             leading: FaIcon(FontAwesomeIcons.solidUser),
-            title: Text('Proprietários'),
+            title: Text("Proprietários"),
+            onTap: () => {Navigator.pushReplacementNamed(context, AppRoutes.exibeProprietarios)},
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

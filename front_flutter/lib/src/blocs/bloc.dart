@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import '../services/proprietario_service.dart';
 import '../models/cavalo.dart';
 import '../models/proprietario.dart';
+import 'package:intl/intl.dart';
 
 class Bloc with Validators {
   final _nomeCavaloController = BehaviorSubject <String> ();
@@ -157,7 +158,7 @@ class Bloc with Validators {
       nome: _nomeCavaloController.value,
       baia:  _baiaCavaloController.valueOrNull,
       pelagem: _pelagemCavaloController.value,
-      dataNascimento: _dtNascCavaloController.value,
+      dataNascimento: DateFormat.yMd('pt_BR').parseStrict(_dtNascCavaloController.value).toString().split(' ')[0],
       sexo: _sexoCavaloController.value,
       numReg: _numeroRegistroCavaloController.valueOrNull,
       tipoReg: _tipoRegistroCavaloController.valueOrNull,
@@ -187,7 +188,7 @@ class Bloc with Validators {
       sobrenome: _sobrenomeProprietarioController.value,
       cpf: _cpfProprietarioController.value,
       genero: _generoProprietarioController.value,
-      dataNascimento: _dtNascProprietarioController.value,
+      dataNascimento: DateFormat.yMd('pt_BR').parseStrict(_dtNascProprietarioController.value).toString().split(' ')[0],
       telefone: _telefoneProprietarioController.value,
       logradouro: _logradouroProprietarioController.value,
       complemento: _complementoProprietarioController.valueOrNull,

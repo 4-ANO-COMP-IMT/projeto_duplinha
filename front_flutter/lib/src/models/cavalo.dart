@@ -9,7 +9,7 @@ class Cavalo {
 
   String get raca => cavalo.raca ;
 
-  String get dataNascimento => cavalo.dataNascimento ;
+  String get dataNascimento => cavalo.formataData() ;
 
   String get pelagem => cavalo.pelagem ;
 

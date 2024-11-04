@@ -9,7 +9,7 @@ class Proprietario {
 
   String get nome => proprietario.escreveNomeCompleto() ;
 
-  String get dataNascimento => proprietario.dataNascimento ;
+  String get dataNascimento => proprietario.formataData() ;
 
   String get cpf => proprietario.escreveCpf() ;
 
@@ -23,7 +23,7 @@ class Proprietario {
 
   String get idade => '${proprietario.calcularIdade()}';
 
-  String? get complemento => proprietario.complemento ;
+  String? get complemento => proprietario.escreveComplemento() ;
 
   String get cidade => proprietario.cidade ;
 

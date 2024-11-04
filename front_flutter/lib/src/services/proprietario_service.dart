@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/proprietario_raw.dart';
+import '../models/proprietario.dart';
 
 class ProprietarioService {
   final String apiUrl = 'http://localhost:31498/proprietarios';
@@ -27,6 +28,39 @@ class ProprietarioService {
         telefoneContatoEmergencia: item['infos']['telefoneContatoEmergencia'],
         cavalos: List<String>.from(item['infos']['id_cavalos'] ?? []),
       )).toList();
+    } else {
+      throw Exception('Falha ao carregar dados dos proprietarios');
+    }
+  }
+
+  Future<Proprietario?> fetchProprietario(idProprietario) async {
+    final response = await http.get(Uri.parse(apiUrl));
+
+    if (response.statusCode == 200) {
+      List<dynamic> data = json.decode(response.body);
+      List<ProprietarioRaw>listaProprietarios = data.map((item) => ProprietarioRaw(
+        id: item['idProprietario'],
+        nome: item['infos']['nome'],
+        sobrenome: item['infos']['sobrenome'],
+        cpf: item['infos']['cpf'],
+        genero: item['infos']['genero'],
+        dataNascimento: item['infos']['dt_nasc'],
+        telefone: item['infos']['telefone'],
+        logradouro: item['infos']['endereco']['logradouro'],
+        complemento: item['infos']['endereco']['complemento'],
+        cidade: item['infos']['endereco']['cidade'],
+        estado: item['infos']['endereco']['estado'],
+        email: item['infos']['email'],
+        nomeContatoEmergencia: item['infos']['nomeContatoEmergencia'],
+        telefoneContatoEmergencia: item['infos']['telefoneContatoEmergencia'],
+        cavalos: List<String>.from(item['infos']['id_cavalos'] ?? []),
+      )).toList();
+
+      for(final proprietario in listaProprietarios){
+        if(proprietario.id == idProprietario){
+          return Proprietario(proprietario);
+        }
+      } return null;
     } else {
       throw Exception('Falha ao carregar dados dos proprietarios');
     }

@@ -7,6 +7,7 @@ import '../services/cavalo_service.dart';
 import '../../routes.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+
 class ExibeCavalos extends StatefulWidget {
   @override
   _ExibeCavalosState createState() => _ExibeCavalosState();
@@ -61,16 +62,21 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
           ),
         ],
       ),
-      floatingActionButton: menuButton(context),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      drawer: menuDrawer(context),
       body: ListView.builder(
+        padding: EdgeInsets.only(
+          left: 200,
+          right: 200,
+          top: 20,
+          bottom: 20,
+        ),
         itemCount: cavalos?.length,
         itemBuilder: (context, index) {
           final cavalo = cavalos![index];
 
           return Cartao(
             onTap: () {
-              //Navigator.pushNamed(context, '/cavalo:idCavalo');
+              Navigator.pushReplacementNamed(context, '/cavalo/${cavalo.id}');
             },
             child: CavaloWidget(
               nome: cavalo.nome,
@@ -78,31 +84,47 @@ class _ExibeCavalosState extends State<ExibeCavalos> {
               pelagem: cavalo.pelagem,
             ),
           );
-        },
-      ),
-    );
-  }
+        })
+      );   
+    }
 
-  Widget menuButton(context) {
-    return PopupMenuButton(
-      icon: Icon(Icons.dehaze_rounded),
-      onSelected: (route) => {Navigator.pushReplacementNamed(context, route)},
-      itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-        PopupMenuItem(
-          value: AppRoutes.exibeCavalos,
-          child: ListTile(
+  Widget menuDrawer(context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.only(
+
+        ),
+        children: [
+          SizedBox(
+            height: 60,
+            child: DrawerHeader(
+              child: Align(
+                child: Text(
+                  "Menu",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                alignment: Alignment.centerLeft,
+              ),
+              margin: EdgeInsets.only(
+                bottom: 0,
+              ),
+            ),
+          ),
+          ListTile(
             leading: FaIcon(FontAwesomeIcons.horseHead),
-            title: Text('Cavalos'),
+            title: Text("Cavalos"),
+            onTap: () => {Navigator.pushReplacementNamed(context, AppRoutes.exibeCavalos)},
           ),
-        ),
-        PopupMenuItem(
-          value: AppRoutes.exibeProprietarios,
-          child: ListTile(
+          ListTile(
             leading: FaIcon(FontAwesomeIcons.solidUser),
-            title: Text('Proprietários'),
+            title: Text("Proprietários"),
+            onTap: () => {Navigator.pushReplacementNamed(context, AppRoutes.exibeProprietarios)},
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

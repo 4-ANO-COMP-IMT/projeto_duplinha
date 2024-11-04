@@ -39,6 +39,12 @@ class CavaloRaw {
     return idade;
   }
 
+  // Formata data
+  String formataData() {
+    final dataFormat = DateTime.parse(dataNascimento).day.toString() + "/" + DateTime.parse(dataNascimento).month.toString() + "/" + DateTime.parse(dataNascimento).year.toString();
+    return dataFormat;
+  }
+
   // Formata o sexo
   String escreveSexo() {
     return sexo == "F" ? "Fêmea" : "Macho";

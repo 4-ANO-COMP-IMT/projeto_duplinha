@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: proprietarios-service
+spec:
+  # IP externo, acessível fora do Cluster
+  type: NodePort
+  selector:
+    # Todo Pod com essa tag fará parte deste serviço
+    app: proprietarios
+  ports:
+  - name: proprietarios
+    protocol: TCP
+    # Porta na qual o nó recebe requisições
+    port: 5000
+    # Porta para a qual o nó redireciona a requisição
+    targetPort: 5000

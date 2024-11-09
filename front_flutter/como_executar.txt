@@ -1,0 +1,1 @@
+Entrar na pasta front_flutter no terminal e roda: flutter run

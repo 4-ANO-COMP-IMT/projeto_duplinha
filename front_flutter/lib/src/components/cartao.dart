@@ -8,17 +8,24 @@ class Cartao extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Card(
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+    return ElevatedButton(
+      onPressed: onTap,
+      style: ButtonStyle(
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: child,
+        iconColor: WidgetStatePropertyAll(
+          const Color(0xFF1ABC9C)
         ),
+        backgroundColor: WidgetStatePropertyAll(
+          const Color.fromARGB(255, 237, 241, 241)
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: child,
       ),
     );
   }

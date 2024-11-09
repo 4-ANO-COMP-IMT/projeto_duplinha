@@ -12,6 +12,5 @@ O projeto aqui contido tem como objetivo ser um sistema de auxílio para o geren
 
 Inicialmente, pode ser feito o cadastro de cavalos e proprietários.
 
-## Observação - Testes
-
-Para facilitar o teste do projeto, existe um arquivo de texto (testes.txt) dentro da pasta "Back-end" o qual contém JSONs prontos para realização das requisições POST implementadas.
+## Vídeo de apresentação do front flutter
+[Vídeo apresentação - Front Flutter](https://youtu.be/4NaBEBMFGzA)
